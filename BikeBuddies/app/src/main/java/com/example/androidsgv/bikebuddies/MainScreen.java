@@ -1,12 +1,15 @@
 package com.example.androidsgv.bikebuddies;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
-public class MainScreen extends ActionBarActivity {
+public class MainScreen extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +38,22 @@ public class MainScreen extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void startRide(View v) {
+
+        Intent intent = new Intent(this,RideScreen.class);
+        startActivity(intent);
+
+    }
+
+    public void goToLeaderboard(View v) {
+        Intent intent = new Intent(this,LeaderboardScreen.class);
+        startActivity(intent);
+    }
+
+    public void findFriends(View v) {
+        Intent intent = new Intent(this,FindFriends.class);
+        startActivity(intent);
     }
 }

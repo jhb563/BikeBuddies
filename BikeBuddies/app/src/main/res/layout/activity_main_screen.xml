@@ -5,7 +5,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainScreen">
 
-    <TextView android:text="Bike Buddies" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+    <Button android:text="Start Ride!"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/startRideButton"
+        android:onClick="startRide"/>
+    <Button android:text="Class Leaderboard"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/leaderboardButton"
+        android:layout_below="@id/startRideButton"
+        android:onClick="goToLeaderboard"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Friends!"
+        android:id="@+id/findfriendsButton"
+        android:layout_below="@id/leaderboardButton"
+        android:onClick="findFriends"/>
 
 </RelativeLayout>

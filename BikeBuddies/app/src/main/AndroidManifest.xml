@@ -16,6 +16,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RideScreen"
+            android:label="@string/title_activity_ride_screen"
+            android:parentActivityName=".MainScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.androidsgv.bikebuddies.MainScreen" />
+        </activity>
+        <activity
+            android:name=".FindFriends"
+            android:label="@string/title_activity_find_friends"
+            android:parentActivityName=".MainScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.androidsgv.bikebuddies.MainScreen" />
+        </activity>
+        <activity
+            android:name=".LeaderboardScreen"
+            android:label="@string/title_activity_leaderboard_screen"
+            android:parentActivityName=".MainScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.androidsgv.bikebuddies.MainScreen" />
+        </activity>
     </application>
 
 </manifest>
