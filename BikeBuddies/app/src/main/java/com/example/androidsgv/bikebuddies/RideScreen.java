@@ -32,7 +32,7 @@ import com.google.maps.android.SphericalUtil;
 
 public class RideScreen extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, OnMapReadyCallback, LocationListener,
-        View.OnClickListener {
+        View.OnClickListener, Chronometer.OnChronometerTickListener {
 
     private GoogleApiClient mGoogleApiClient;
     private Location mLastLocation;
@@ -42,6 +42,7 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
     private static final String goToLeaderBoardKey = "GoToLeaderBoardKey";
     private static final int RIDE_CODE = 1;
     private Chronometer mChronometer;
+    private long mCurrentTime;
     private double totalDistance;
 
 
@@ -50,7 +51,7 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ride_screen);
-        setUpChronometer();
+        initChronometer();
         buildGoogleApiClient();
         mGoogleApiClient.connect();
         popupInit();
@@ -58,8 +59,16 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
 
     }
 
+    private void initChronometer() {
+        mChronometer = (Chronometer) findViewById(R.id.total_time_text);
+        mChronometer.setOnChronometerTickListener(this);
+        mCurrentTime = mChronometer.getBase();
+    }
+
     private void setUpChronometer() {
         mChronometer = (Chronometer) findViewById(R.id.total_time_text);
+        mChronometer.setOnChronometerTickListener(this);
+        mChronometer.setBase(mCurrentTime);
     }
 
     // Creates a Google API Client, which we use to interact with Google Play Services
@@ -256,7 +265,9 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
 
     }
 
-
+    public void onChronometerTick(Chronometer chronometer) {
+        mCurrentTime = chronometer.getBase();
+    }
 
 
 }

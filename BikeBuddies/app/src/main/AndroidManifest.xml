@@ -29,7 +29,8 @@
         <activity
             android:name=".RideScreen"
             android:label="@string/title_activity_ride_screen"
-            android:parentActivityName=".MainScreen" >
+            android:parentActivityName=".MainScreen"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.androidsgv.bikebuddies.MainScreen" />
