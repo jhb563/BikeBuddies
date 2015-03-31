@@ -1,6 +1,7 @@
 package com.example.androidsgv.bikebuddies;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.location.LocationListener;
+import com.google.maps.android.SphericalUtil;
 
 
 public class RideScreen extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
@@ -40,6 +42,9 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
     private static final String goToLeaderBoardKey = "GoToLeaderBoardKey";
     private static final int RIDE_CODE = 1;
     private Chronometer mChronometer;
+    private double totalDistance;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +54,7 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         buildGoogleApiClient();
         mGoogleApiClient.connect();
         popupInit();
+        totalDistance = 0;
 
     }
 
@@ -104,7 +110,7 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         }
 
 //        map.setMyLocationEnabled(true);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 13));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(current, 17));
         map.addMarker(new MarkerOptions().position(current));
         mChronometer.start();
 
@@ -126,11 +132,23 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
     }
 
     // Listener for when the location changes.
-    // TODO Should update distance figures.
     public void onLocationChanged(Location location) {
+
+        double metersToMile = 0.000621371;
+
+        LatLng previousLatlng = new LatLng(mLastLocation.getLatitude(),mLastLocation.getLongitude());
+
         mLastLocation = location;
         LatLng newLatlng = new LatLng(location.getLatitude(),location.getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLng(newLatlng));
+
+        double distance = SphericalUtil.computeDistanceBetween(previousLatlng,newLatlng);
+        double miles = distance * metersToMile;
+        totalDistance += miles;
+        TextView distanceText = (TextView) findViewById(R.id.total_distance_text);
+        distanceText.setText(String.format("%1.2f",totalDistance));
+
+        mMap.clear();
         mMap.addMarker(new MarkerOptions().position(newLatlng));
     }
 
@@ -186,35 +204,36 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
 
     // Set up the popup for ending the ride
     private void popupInit() {
+        int fontSize = 16;
         LinearLayout popupLayout = new LinearLayout(this);
         popupLayout.setBackgroundColor(0xFFFFFFFF);
         popupLayout.setOrientation(LinearLayout.VERTICAL);
 
         TextView finishedMessage = new TextView(this);
         finishedMessage.setText(R.string.finish_message);
-        finishedMessage.setTextSize(16);
+        finishedMessage.setTextSize(fontSize);
         popupLayout.addView(finishedMessage);
 
         TextView totalTime = new TextView(this);
         totalTime.setText(R.string.total_time);
-        totalTime.setTextSize(16);
+        totalTime.setTextSize(fontSize);
         popupLayout.addView(totalTime);
 
         TextView totalDistance = new TextView(this);
         totalDistance.setText(R.string.total_distance);
-        totalDistance.setTextSize(16);
+        totalDistance.setTextSize(fontSize);
         popupLayout.addView(totalDistance);
 
         Button goBackButton = new Button(this);
         goBackButton.setOnClickListener(this);
         goBackButton.setText("Home");
-        goBackButton.setTextSize(16);
+        goBackButton.setTextSize(fontSize);
         popupLayout.addView(goBackButton);
 
         Button leaderBoardButton = new Button(this);
         leaderBoardButton.setOnClickListener(this);
         leaderBoardButton.setText("Go to Leaderboard");
-        leaderBoardButton.setTextSize(16);
+        leaderBoardButton.setTextSize(fontSize);
         popupLayout.addView(leaderBoardButton);
 
         endRidePopup = new PopupWindow(popupLayout, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -236,4 +255,8 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         }
 
     }
+
+
+
+
 }

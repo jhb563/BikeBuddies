@@ -45,7 +45,8 @@
         <activity
             android:name=".LeaderboardScreen"
             android:label="@string/title_activity_leaderboard_screen"
-            android:parentActivityName=".MainScreen" >
+            android:parentActivityName=".MainScreen"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.androidsgv.bikebuddies.MainScreen" />
