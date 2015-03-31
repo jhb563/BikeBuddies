@@ -8,4 +8,37 @@
     <string name="title_activity_find_friends">Find Friends</string>
     <string name="title_activity_leaderboard_screen">LeaderboardScreen</string>
 
+    <!-- strings for use in the main screen-->
+    <string name="notification_button_text">Notifications</string>
+    <string name="start_ride_button_text">Start Ride!</string>
+    <string name="history_button_text">My History</string>
+    <string name="leaderboard_button_text">Class Leaderboard</string>
+    <string name="find_friends_button_text">Find Friends!</string>
+    <string name="route_rec_button_text">Route Records</string>
+    <string name="user_name">Welcome, User N.! </string>
+
+    <!-- strings for use in the class leaderboard-->
+    <string name="leaderboard_data_bar_student">Student</string>
+    <string name="leaderboard_data_bar_time">Total Time</string>
+    <string name="leaderboard_data_bar_mileage">Mileage</string>
+    <string name="leaderboard_title_bar">Class Leaderboard</string>
+
+    <!--
+    <string-array name="peoplearray">
+        <item >Hannah Y.</item>
+        <item >Jim B.</item>
+        <item >James B.</item>
+        <item >Vanessa R</item>
+        <item >George S.</item>
+    </string-array>
+
+    <string-array name="timemileagearray">
+        <item >04:05:10 7.5mi</item>
+        <item >03:04:12 2.2mi</item>
+        <item >03:01:01 2.1mi</item>
+        <item >02:34:19 1.8mi</item>
+        <item >00:00:00 0.0mi</item>
+    </string-array>
+    -->
+
 </resources>

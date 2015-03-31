@@ -10,8 +10,8 @@
         android:id="@+id/imageView"
         android:src="@drawable/profile_image_hdpi"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,10 +20,9 @@
         android:text="@string/user_name"
         android:id="@+id/textView"
         android:gravity="center"
-        android:layout_marginBottom="44dp"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView" />
+        android:layout_below="@+id/startRideButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <Button android:text="@string/start_ride_button_text"
         android:layout_height="120dp"
@@ -47,9 +46,9 @@
         android:text="@string/find_friends_button_text"
         android:id="@+id/findfriendsButton"
         android:onClick="findFriends"
-        android:layout_alignTop="@+id/notifications_button"
-        android:layout_toRightOf="@+id/notifications_button"
-        android:layout_toEndOf="@+id/notifications_button" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/history_button"
+        android:layout_toEndOf="@+id/history_button" />
 
     <Button
         android:layout_width="175dp"
@@ -57,8 +56,8 @@
         android:text="@string/notification_button_text"
         android:id="@+id/notifications_button"
         android:layout_above="@+id/startRideButton"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignLeft="@+id/startRideButton"
+        android:layout_alignStart="@+id/startRideButton" />
 
     <Button
         android:layout_width="175dp"
@@ -67,7 +66,8 @@
         android:id="@+id/history_button"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/route_rec_button"
-        android:layout_toStartOf="@+id/route_rec_button" />
+        android:layout_toStartOf="@+id/route_rec_button"
+        android:layout_below="@+id/leaderboardButton" />
 
     <Button
         android:layout_width="175dp"
@@ -76,7 +76,8 @@
         android:id="@+id/route_rec_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/history_button" />
 
 
 
