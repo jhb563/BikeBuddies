@@ -8,6 +8,7 @@
     <string name="title_activity_ride_screen">Record a Ride</string>
     <string name="title_activity_find_friends">Find Friends!</string>
     <string name="title_activity_leaderboard_screen">Class Leaderboard</string>
+    <string name="THIS_USER">Jim B.</string>
 
     <!-- strings for use in the main screen-->
     <string name="notification_button_text">Notifications</string>
@@ -16,7 +17,7 @@
     <string name="leaderboard_button_text">Class Leaderboard</string>
     <string name="find_friends_button_text">Find Friends!</string>
     <string name="route_rec_button_text">Route Records</string>
-    <string name="user_name">Welcome, Jim B.! </string>
+    <string name="user_name">Welcome, %1$s! </string>
 
     <!-- strings for use in the class leaderboard-->
     <string name="leaderboard_data_bar_student">Student</string>

@@ -13,21 +13,6 @@ public class LeaderboardScreen extends ActionBarActivity {
     String[] people;
     String[] data;
 
-//            {
-//            "Hannah Y.",
-//            "Jim B.",
-//            "James B.",
-//            "Vanessa R.",
-//            "George S."
-//    };
-
-//        {
-//            "04:05:10   7.5mi",
-//            "03:04:12   2.2mi",
-//            "03:01:01   2.1mi",
-//            "02:34:19   1.8mi",
-//            "00:00:00   0.0mi"
-//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

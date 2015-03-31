@@ -9,10 +9,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class MainScreen extends ActionBarActivity {
 
+    TextView welcomeName;
     Button leaderboardButton;
     Button startRideButton;
     Button friendsButton;
@@ -26,6 +28,11 @@ public class MainScreen extends ActionBarActivity {
         leaderboardButton = (Button) findViewById(R.id.leaderboardButton);
         startRideButton = (Button) findViewById(R.id.startRideButton);
         friendsButton = (Button) findViewById(R.id.findfriendsButton);
+        welcomeName = (TextView) findViewById(R.id.textViewName);
+        String userName = String.format(getResources().getString(R.string.user_name),
+                getResources().getString(R.string.THIS_USER) );
+        welcomeName.setText(userName);
+
 
     }
 
