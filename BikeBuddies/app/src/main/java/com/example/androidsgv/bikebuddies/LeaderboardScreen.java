@@ -10,25 +10,32 @@ import android.widget.ListView;
 public class LeaderboardScreen extends ActionBarActivity {
 
     ListView list;
-    String[] people ={
-            "Hannah Y.",
-            "Jim B.",
-            "James B.",
-            "Vanessa R.",
-            "George S."
-    };
-    String[] data ={
-            "04:05:10 7.5mi",
-            "03:04:12 2.2mi",
-            "03:01:01 2.1mi",
-            "02:34:19 1.8mi",
-            "00:00:00 0.0mi"
-    };
+    String[] people;
+    String[] data;
+
+//            {
+//            "Hannah Y.",
+//            "Jim B.",
+//            "James B.",
+//            "Vanessa R.",
+//            "George S."
+//    };
+
+//        {
+//            "04:05:10   7.5mi",
+//            "03:04:12   2.2mi",
+//            "03:01:01   2.1mi",
+//            "02:34:19   1.8mi",
+//            "00:00:00   0.0mi"
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard_screen);
+
+        people = getResources().getStringArray(R.array.peoplearray);
+        data = getResources().getStringArray(R.array.timemileagearray);
 
         ClassLeaderboardCustomAdapter adapter=new ClassLeaderboardCustomAdapter(this, people, data);
         list=(ListView)findViewById(R.id.listViewForLeaderboard);

@@ -4,17 +4,29 @@ import android.app.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 
-public class MainScreen extends Activity {
+public class MainScreen extends ActionBarActivity {
+
+    Button leaderboardButton;
+    Button startRideButton;
+    Button friendsButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+
+        leaderboardButton = (Button) findViewById(R.id.leaderboardButton);
+        startRideButton = (Button) findViewById(R.id.startRideButton);
+        friendsButton = (Button) findViewById(R.id.findfriendsButton);
+
     }
 
 

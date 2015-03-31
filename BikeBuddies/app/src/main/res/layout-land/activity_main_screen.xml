@@ -20,9 +20,10 @@
         android:text="@string/user_name"
         android:id="@+id/textView"
         android:gravity="center"
-        android:layout_below="@+id/startRideButton"
+        android:layout_alignBottom="@+id/startRideButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="41dp" />
 
     <Button android:text="@string/start_ride_button_text"
         android:layout_height="120dp"

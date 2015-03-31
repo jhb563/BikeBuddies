@@ -9,6 +9,7 @@
     <TextView android:text="@string/leaderboard_title_bar"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
+        android:textSize="22sp"
         android:gravity="center"
         android:id="@+id/class_leaderboard_title"
         android:padding="10dp"/>
