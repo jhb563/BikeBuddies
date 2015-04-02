@@ -23,4 +23,13 @@
     <string name="where">Where will you meet?</string>
     <string name="send_invite">Invite your friend!</string>
 
+    <!--Status alert dialog-->
+    <string name="alert_message">Send invite to your friend?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!--Invite sent dialog-->
+    <string name="confirm">Your invitation has been sent!</string>
+    <string name="ok">OK</string>
+
 </resources>

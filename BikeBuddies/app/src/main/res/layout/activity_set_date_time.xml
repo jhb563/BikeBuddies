@@ -38,7 +38,8 @@
         android:id="@+id/SendInvite"
         android:layout_height="wrap_content"
         android:text="@string/send_invite"
-        android:layout_width="fill_parent">
+        android:layout_width="fill_parent"
+        android:onClick="yesNoAlert">
     </Button>
 
 </LinearLayout>
