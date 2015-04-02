@@ -51,4 +51,28 @@
     <string name="total_time">Total Time:\  </string>
     <string name="total_distance">Total Distance:\  </string>
 
+
+    <!--FindFriends-->
+    <string name="invite">Invite to Ride!</string>
+    <string name="friend1">Jim B.</string>
+    <string name="friend2">George</string>
+    <string name="friend3">James B.</string>
+    <string name="friend4">Sam E.</string>
+
+    <!--SetDateTime-->
+    <string name="title_activity_set_date_time">Set the Times That Are Good for You </string>
+    <string name="set_date">Choose the date</string>
+    <string name="set_time">Choose the time</string>
+    <string name="where">Where will you meet?</string>
+    <string name="send_invite">Invite your friend!</string>
+
+    <!--Status alert dialog-->
+    <string name="alert_message">Send invite to your friend?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!--Invite sent dialog-->
+    <string name="confirm">Your invitation has been sent!</string>
+    <string name="ok">OK</string>
+
 </resources>

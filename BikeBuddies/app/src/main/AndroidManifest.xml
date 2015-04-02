@@ -52,6 +52,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.androidsgv.bikebuddies.MainScreen" />
         </activity>
+        <activity
+            android:name=".SetDateTime"
+            android:label="@string/title_activity_set_date_time" >
+        </activity>
     </application>
 
 </manifest>
