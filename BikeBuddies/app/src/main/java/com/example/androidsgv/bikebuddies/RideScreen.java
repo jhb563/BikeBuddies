@@ -214,6 +214,7 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
     // Set up the popup for ending the ride
     private void popupInit() {
         int fontSize = 16;
+
         LinearLayout popupLayout = new LinearLayout(this);
         popupLayout.setBackgroundColor(0xFFFFFFFF);
         popupLayout.setOrientation(LinearLayout.VERTICAL);
