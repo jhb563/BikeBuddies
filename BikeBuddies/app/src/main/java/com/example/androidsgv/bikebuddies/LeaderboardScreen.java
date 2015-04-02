@@ -4,14 +4,27 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 
 public class LeaderboardScreen extends ActionBarActivity {
+
+    ListView list;
+    String[] people;
+    String[] data;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard_screen);
+
+        people = getResources().getStringArray(R.array.peoplearray);
+        data = getResources().getStringArray(R.array.timemileagearray);
+
+        ClassLeaderboardCustomAdapter adapter=new ClassLeaderboardCustomAdapter(this, people, data);
+        list=(ListView)findViewById(R.id.listViewForLeaderboard);
+        list.setAdapter(adapter);
     }
 
 

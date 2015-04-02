@@ -4,12 +4,21 @@ import android.app.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 
-public class MainScreen extends Activity {
+public class MainScreen extends ActionBarActivity {
+
+    TextView welcomeName;
+    Button leaderboardButton;
+    Button startRideButton;
+    Button friendsButton;
+
 
     private static final int RIDE_CODE = 1;
     private static final String goToLeaderBoardKey = "GoToLeaderBoardKey";
@@ -18,6 +27,16 @@ public class MainScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+
+        leaderboardButton = (Button) findViewById(R.id.leaderboardButton);
+        startRideButton = (Button) findViewById(R.id.startRideButton);
+        friendsButton = (Button) findViewById(R.id.findfriendsButton);
+        welcomeName = (TextView) findViewById(R.id.textViewName);
+        String userName = String.format(getResources().getString(R.string.user_name),
+                getResources().getString(R.string.THIS_USER) );
+        welcomeName.setText(userName);
+
+
     }
 
 
