@@ -135,7 +135,7 @@ public class SetDateTime extends ActionBarActivity{
 
     public static class confirmDialogFragment extends DialogFragment {
         @Override
-        // creates the confirmation dialog fragment
+        // creates the confirmation dialog fragment so that the user goes back to the home screen
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the Builder class for convenient dialog construction
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
