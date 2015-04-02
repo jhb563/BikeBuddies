@@ -41,5 +41,14 @@
         <item >02:34:19 \u0020\u0020\u00201.8mi</item>
         <item >00:00:00 \u0020\u0020\u00200.0mi</item>
     </string-array>
+    <integer name="google_play_services_version">7095000</integer>
+    <string name="end_ride_string">End Ride</string>
+    <string name="current_time_string">Current Time</string>
+    <string name="current_distance_string">Current Distance</string>
+    <string name="initial_time_string">00:00:00</string>
+    <string name="initial_distance_string">0.0 Miles</string>
+    <string name="finish_message">Congratulations on your \n awesome ride!</string>
+    <string name="total_time">Total Time:\  </string>
+    <string name="total_distance">Total Distance:\  </string>
 
 </resources>

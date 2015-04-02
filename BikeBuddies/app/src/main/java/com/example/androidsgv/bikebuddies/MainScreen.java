@@ -20,6 +20,9 @@ public class MainScreen extends ActionBarActivity {
     Button friendsButton;
 
 
+    private static final int RIDE_CODE = 1;
+    private static final String goToLeaderBoardKey = "GoToLeaderBoardKey";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,7 @@ public class MainScreen extends ActionBarActivity {
     public void startRide(View v) {
 
         Intent intent = new Intent(this,RideScreen.class);
-        startActivity(intent);
+        startActivityForResult(intent,RIDE_CODE);
 
     }
 
@@ -74,5 +77,12 @@ public class MainScreen extends ActionBarActivity {
     public void findFriends(View v) {
         Intent intent = new Intent(this,FindFriends.class);
         startActivity(intent);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == RIDE_CODE && resultCode == RIDE_CODE) {
+            Intent newIntent = new Intent(this,LeaderboardScreen.class);
+            startActivity(newIntent);
+        }
     }
 }
