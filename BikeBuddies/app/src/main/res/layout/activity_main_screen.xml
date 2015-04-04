@@ -31,14 +31,18 @@
         android:layout_width="175dp"
         android:id="@+id/startRideButton"
         android:onClick="startRide"
+        android:textAllCaps="false"
+        android:background="@drawable/button_background_darkblue"
         android:layout_above="@+id/history_button"
         android:layout_toLeftOf="@+id/findfriendsButton"
         android:layout_toStartOf="@+id/findfriendsButton" />
+
     <Button android:text="@string/leaderboard_button_text"
         android:layout_height="120dp"
         android:layout_width="175dp"
         android:id="@+id/leaderboardButton"
         android:onClick="goToLeaderboard"
+        android:textAllCaps="false"
         android:layout_below="@+id/findfriendsButton"
         android:layout_toRightOf="@+id/startRideButton"
         android:layout_toEndOf="@+id/startRideButton" />
@@ -48,6 +52,7 @@
         android:text="@string/find_friends_button_text"
         android:id="@+id/findfriendsButton"
         android:onClick="findFriends"
+        android:textAllCaps="false"
         android:layout_alignTop="@+id/notifications_button"
         android:layout_toRightOf="@+id/notifications_button"
         android:layout_toEndOf="@+id/notifications_button" />
@@ -58,6 +63,7 @@
         android:text="@string/notification_button_text"
         android:id="@+id/notifications_button"
         android:layout_above="@+id/startRideButton"
+        android:textAllCaps="false"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -67,6 +73,7 @@
         android:text="@string/history_button_text"
         android:id="@+id/history_button"
         android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
         android:layout_toLeftOf="@+id/route_rec_button"
         android:layout_toStartOf="@+id/route_rec_button" />
 
@@ -75,6 +82,7 @@
         android:layout_height="120dp"
         android:text="@string/route_rec_button_text"
         android:id="@+id/route_rec_button"
+        android:textAllCaps="false"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
