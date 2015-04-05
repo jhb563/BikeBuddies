@@ -21,15 +21,34 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
+import java.util.Date;
 
 
-public class SetDateTime extends ActionBarActivity{
+public class SetDateTime extends ActionBarActivity {
 
+    private static int FINISH_CODE = 2;
+    private static String finishString = "Finish";
+    private int mSelectedYear;
+    private int mSelectedMonth;
+    private int mSelectedDate;
+    private int mSelectedHour;
+    private int mSelectedSecond;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_date_time);
+    }
+
+    public void setDate(int y, int m, int d) {
+        mSelectedYear = y;
+        mSelectedMonth = m;
+        mSelectedDate = d;
+    }
+
+    public void setTime(int h, int s) {
+        mSelectedHour = h;
+        mSelectedSecond = s;
     }
 
 
@@ -81,7 +100,8 @@ public class SetDateTime extends ActionBarActivity{
         }
 
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            // Do something with the time chosen by the user
+            SetDateTime thisActivity = (SetDateTime) getActivity();
+            thisActivity.setTime(hourOfDay,minute);
         }
     }
 
@@ -102,7 +122,8 @@ public class SetDateTime extends ActionBarActivity{
         }
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
-            // Do something with the date chosen by the user
+            SetDateTime thisActivity = (SetDateTime) getActivity();
+            thisActivity.setDate(year,month,day);
         }
     }
 
@@ -142,8 +163,11 @@ public class SetDateTime extends ActionBarActivity{
             builder.setMessage(R.string.confirm)
                     .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            // FIRE ZE MISSILES! Or, you know, confirm that yes, the user does
-                            // want to do this
+                            dialog.dismiss();
+                            Intent newIntent = new Intent();
+                            newIntent.putExtra(finishString,true);
+                            getActivity().setResult(FINISH_CODE,newIntent);
+                            getActivity().finish();
 
                         }
                     });

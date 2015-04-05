@@ -10,6 +10,9 @@ import android.view.View;
 
 public class FindFriends extends ActionBarActivity {
 
+    private static int FINISH_CODE = 2;
+    private static String finishString = "Finish";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,12 @@ public class FindFriends extends ActionBarActivity {
 
     public void setDateTime(View v) {
         Intent intent = new Intent(this,SetDateTime.class);
-        startActivity(intent);
+        startActivityForResult(intent,FINISH_CODE);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == FINISH_CODE && resultCode == FINISH_CODE) {
+            finish();
+        }
     }
 }

@@ -30,7 +30,7 @@
 
     <Button android:text="@string/start_ride_button_text"
         android:layout_height="120dp"
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:id="@+id/startRideButton"
         android:onClick="startRide"
         android:textAllCaps="false"
@@ -42,7 +42,7 @@
 
     <Button android:text="@string/leaderboard_button_text"
         android:layout_height="120dp"
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:id="@+id/leaderboardButton"
         android:onClick="goToLeaderboard"
         android:textAllCaps="false"
@@ -52,7 +52,7 @@
         android:layout_toEndOf="@+id/startRideButton"
         android:layout_margin="2dp"/>
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="120dp"
         android:text="@string/find_friends_button_text"
         android:id="@+id/findfriendsButton"
@@ -65,7 +65,7 @@
         android:layout_margin="2dp"/>
 
     <Button
-        android:layout_width="175dp"
+        android:layout_width="160dp"
         android:layout_height="120dp"
         android:text="@string/notification_button_text"
         android:id="@+id/notifications_button"
@@ -77,7 +77,7 @@
         android:layout_margin="2dp"/>
 
     <Button
-        android:layout_width="185dp"
+        android:layout_width="160dp"
         android:layout_height="120dp"
         android:text="@string/history_button_text"
         android:id="@+id/history_button"
@@ -89,7 +89,7 @@
         android:layout_margin="2dp"/>
 
     <Button
-        android:layout_width="170dp"
+        android:layout_width="160dp"
         android:layout_height="120dp"
         android:text="@string/route_rec_button_text"
         android:id="@+id/route_rec_button"
