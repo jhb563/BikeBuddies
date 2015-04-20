@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androidsgv.bikebuddies" >
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +15,11 @@
         android:theme="@style/Theme.AppCompat.Light" >
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
-        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value=""/>
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="" />
+
         <activity
             android:name=".MainScreen"
             android:label="@string/title_activity_main_screen" >
@@ -30,7 +33,7 @@
             android:name=".RideScreen"
             android:label="@string/title_activity_ride_screen"
             android:parentActivityName=".MainScreen"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.androidsgv.bikebuddies.MainScreen" />
@@ -46,8 +49,7 @@
         <activity
             android:name=".LeaderboardScreen"
             android:label="@string/title_activity_leaderboard_screen"
-            android:parentActivityName=".MainScreen"
-            >
+            android:parentActivityName=".MainScreen" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.androidsgv.bikebuddies.MainScreen" />
@@ -55,6 +57,14 @@
         <activity
             android:name=".SetDateTime"
             android:label="@string/title_activity_set_date_time" >
+        </activity>
+        <activity
+            android:name=".MyRideHistoryActivity"
+            android:label="@string/title_activity_my_ride_history"
+            android:parentActivityName=".MainScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.androidsgv.bikebuddies.MainScreen" />
         </activity>
     </application>
 

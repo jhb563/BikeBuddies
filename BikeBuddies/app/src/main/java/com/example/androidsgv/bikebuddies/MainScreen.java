@@ -85,4 +85,9 @@ public class MainScreen extends ActionBarActivity {
             startActivity(newIntent);
         }
     }
+
+    public void openMyHistory(View v) {
+        Intent intent = new Intent(this,MyRideHistoryActivity.class);
+        startActivity(intent);
+    }
 }
