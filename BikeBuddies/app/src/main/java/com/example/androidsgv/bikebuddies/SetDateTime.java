@@ -7,9 +7,11 @@ import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,11 +35,25 @@ public class SetDateTime extends ActionBarActivity {
     private int mSelectedDate;
     private int mSelectedHour;
     private int mSelectedSecond;
+    private Bundle extras;
+    public static String friendName = "no name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_date_time);
+
+        //set up notification in case we actually do send the request to a friend
+        extras = getIntent().getExtras();
+        if (extras ==null){
+            friendName = "Friend";
+        } else{
+            friendName = ( extras.getString("name_of_friend"));
+        }
+    }
+
+    public String getFriendName(){
+        return friendName;
     }
 
     public void setDate(int y, int m, int d) {
@@ -164,6 +180,19 @@ public class SetDateTime extends ActionBarActivity {
                     .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
+
+                            //deal with notification making things
+                            SharedPreferences preferences = getActivity().getSharedPreferences("Notifications", 0);
+                            SharedPreferences.Editor editor = preferences.edit();
+
+                            String finalString = SetDateTime.friendName + " has accepted your request!";
+                            Log.d("Sam", "here's what we saved: " + finalString);
+                            final Calendar c = Calendar.getInstance();
+                            String dateTimeString = c.toString();
+                            editor.putString(dateTimeString,finalString);
+                            editor.commit();
+                            //end with notification making things
+
                             Intent newIntent = new Intent();
                             newIntent.putExtra(finishString,true);
                             getActivity().setResult(FINISH_CODE,newIntent);
@@ -174,6 +203,7 @@ public class SetDateTime extends ActionBarActivity {
             // Create the AlertDialog object and return it
             return builder.create();
         }
+
     }
 
     public void yesNoAlert(View view) {

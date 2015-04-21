@@ -31,7 +31,7 @@ public class MainScreen extends ActionBarActivity {
         leaderboardButton = (Button) findViewById(R.id.leaderboardButton);
         startRideButton = (Button) findViewById(R.id.startRideButton);
         friendsButton = (Button) findViewById(R.id.findfriendsButton);
-        welcomeName = (TextView) findViewById(R.id.textViewName);
+        welcomeName = (Button) findViewById(R.id.buttonName);
         String userName = String.format(getResources().getString(R.string.user_name),
                 getResources().getString(R.string.THIS_USER) );
         welcomeName.setText(userName);
@@ -88,6 +88,11 @@ public class MainScreen extends ActionBarActivity {
 
     public void openMyHistory(View v) {
         Intent intent = new Intent(this,MyRideHistoryActivity.class);
+        startActivity(intent);
+    }
+
+    public void seeNotifications(View v){
+        Intent intent = new Intent(this, NotificationsScreen.class);
         startActivity(intent);
     }
 }
