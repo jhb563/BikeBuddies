@@ -4,53 +4,32 @@
     android:background="#FFFFFF"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainScreen">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainScreen"
+    android:orientation="vertical">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/profile_image_hdpi"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/history_button"
-        android:layout_alignStart="@+id/history_button"
         android:layout_marginBottom="10dp"
         android:paddingLeft="17dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="70dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/textViewName"
+        android:text="@string/user_name"
+        android:background="@drawable/button_background_lightblue"
         android:gravity="center"
-        android:layout_marginBottom="52dp"
         android:paddingRight="17dp"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignRight="@+id/findfriendsButton"
-        android:layout_alignEnd="@+id/findfriendsButton" />
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"/>
 
-    <Button android:text="@string/start_ride_button_text"
-        android:layout_height="120dp"
-        android:layout_width="160dp"
-        android:id="@+id/startRideButton"
-        android:onClick="startRide"
-        android:textAllCaps="false"
-        android:background="@drawable/button_background_midblue"
-        android:layout_above="@+id/history_button"
-        android:layout_toLeftOf="@+id/findfriendsButton"
-        android:layout_toStartOf="@+id/findfriendsButton"
-        android:layout_margin="2dp"/>
-
-    <Button android:text="@string/leaderboard_button_text"
-        android:layout_height="120dp"
-        android:layout_width="160dp"
-        android:id="@+id/leaderboardButton"
-        android:onClick="goToLeaderboard"
-        android:textAllCaps="false"
-        android:background="@drawable/button_background_midblue"
-        android:layout_below="@+id/findfriendsButton"
-        android:layout_toRightOf="@+id/startRideButton"
-        android:layout_toEndOf="@+id/startRideButton"
-        android:layout_margin="2dp"/>
     <Button
         android:layout_width="160dp"
         android:layout_height="120dp"
@@ -59,48 +38,44 @@
         android:onClick="findFriends"
         android:textAllCaps="false"
         android:background="@drawable/button_background_darkblue"
-        android:layout_alignTop="@+id/notifications_button"
-        android:layout_toRightOf="@+id/notifications_button"
-        android:layout_toEndOf="@+id/notifications_button"
-        android:layout_margin="2dp"/>
-
-    <Button
-        android:layout_width="160dp"
-        android:layout_height="120dp"
-        android:text="@string/notification_button_text"
-        android:id="@+id/notifications_button"
-        android:layout_above="@+id/startRideButton"
-        android:textAllCaps="false"
-        android:background="@drawable/button_background_darkblue"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_margin="2dp"/>
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="160dp"
         android:layout_height="120dp"
         android:text="@string/history_button_text"
         android:id="@+id/history_button"
-        android:layout_alignParentBottom="true"
         android:textAllCaps="false"
-        android:background="@drawable/button_background_lightblue"
-        android:layout_toLeftOf="@+id/route_rec_button"
-        android:layout_toStartOf="@+id/route_rec_button"
-        android:layout_margin="2dp"
-        android:onClick="openMyHistory"/>
+        android:background="@drawable/button_background_midblue"
+        android:onClick="openMyHistory"
+        android:layout_alignTop="@+id/leaderboardButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="160dp"
+    <Button android:text="@string/start_ride_button_text"
         android:layout_height="120dp"
-        android:text="@string/route_rec_button_text"
-        android:id="@+id/route_rec_button"
+        android:layout_width="160dp"
+        android:id="@+id/startRideButton"
+        android:onClick="startRide"
         android:textAllCaps="false"
-        android:background="@drawable/button_background_lightblue"
+        android:background="@drawable/button_background_darkblue"
+        android:layout_alignTop="@+id/findfriendsButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button android:text="@string/leaderboard_button_text"
+        android:layout_height="120dp"
+        android:layout_width="160dp"
+        android:id="@+id/leaderboardButton"
+        android:onClick="goToLeaderboard"
+        android:textAllCaps="false"
+        android:background="@drawable/button_background_midblue"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/leaderboardButton"
-        android:layout_margin="2dp"/>
+        android:layout_alignParentEnd="true" />
+
 
 
 
