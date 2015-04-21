@@ -1,10 +1,12 @@
 package com.example.androidsgv.bikebuddies;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +30,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.location.LocationListener;
 import com.google.maps.android.SphericalUtil;
+
+import java.util.Calendar;
 
 
 public class RideScreen extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
@@ -177,6 +181,19 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         String timeResultStr = timeResult.getText().toString();
         timeText.setText(timeText.getText() + " " + timeResultStr);
 
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        year = year % 100;
+        int month = c.get(Calendar.MONTH);
+        month += 1;
+        int day = c.get(Calendar.DATE);
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        int minute = c.get(Calendar.MINUTE);
+        int second = c.get(Calendar.SECOND);
+
+
+
+
         // Add the appropriate text for the finished ride statistics.
         TextView distanceText = (TextView) topLevelLayout.getChildAt(distanceIndex);
         TextView distanceResult = (TextView) findViewById(R.id.total_distance_text);
@@ -184,6 +201,75 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         distanceText.setText(distanceText.getText() + " " + distanceResultStr);
         endRidePopup.showAtLocation(findViewById(R.id.top_layout), Gravity.CENTER_HORIZONTAL,0,0);
 
+        String dateTimeString = c.toString();
+        String abbrDate = month + "/" + day + "/" + year;
+
+        SharedPreferences preferences = getSharedPreferences("Ride History",0);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        String finalString = abbrDate + "," + distanceResultStr + "," + timeResultStr+","+dateTimeString;
+
+        editor.putString(dateTimeString,finalString);
+        editor.commit();
+
+        preferences = getSharedPreferences("Class",0);
+        String currentUser = "Jim B.";
+        editor = preferences.edit();
+        String[] oldTimeAndDist = preferences.getString(currentUser,"").split("   ");
+        if (oldTimeAndDist.length < 3) {
+            Log.e("James","Something went wrong");
+        } else {
+            String oldTime = oldTimeAndDist[1];
+            String[] times = oldTime.split(":");
+            int[] intTimes = new int[3];
+            for (int i = 0; i < 3; ++i) {
+                intTimes[i] = Integer.parseInt(times[i]);
+            }
+
+            String[] timesForThisRide = timeResultStr.split(":");
+            int[] intRideTimes = new int[timesForThisRide.length];
+            for (int i = 0; i < intRideTimes.length; ++i) {
+                intRideTimes[i] = Integer.parseInt(timesForThisRide[i]);
+            }
+
+            String finalTime = "";
+            if (intRideTimes.length == 2) {
+                int newSeconds = intRideTimes[1] + intTimes[2];
+                int minuteCarry = newSeconds / 60;
+                newSeconds = newSeconds % 60;
+
+                int newMinutes = intRideTimes[0] + intTimes[1] + minuteCarry;
+                int hourCarry = newMinutes / 60;
+                newMinutes = newMinutes % 60;
+
+                int finalHour = intTimes[0] + hourCarry;
+
+                finalTime = finalHour + ":" + newMinutes + ":" + newSeconds;
+            } else if (intRideTimes.length == 3) {
+                int newSeconds = intRideTimes[2] + intTimes[2];
+                int minuteCarry = newSeconds / 60;
+                newSeconds = newSeconds % 60;
+
+                int newMinutes = intRideTimes[1] + intTimes[1] + minuteCarry;
+                int hourCarry = newMinutes / 60;
+                newMinutes = newMinutes % 60;
+
+                int finalHour = intTimes[0] + hourCarry + intRideTimes[0];
+
+                finalTime = finalHour + ":" + newMinutes + ":" + newSeconds;
+            } else {
+                Log.e("James","Something went wrong with the time!");
+            }
+
+
+            String oldDist = oldTimeAndDist[2];
+            Double oldDistanceDoub = Double.valueOf(oldDist.substring(0,oldDist.length() - 2));
+            Double newDistance = Double.valueOf(distanceResultStr);
+            String newDistanceString = (oldDistanceDoub + newDistance) + "";
+
+            editor.putString(currentUser,currentUser + "   " + finalTime + "   " + newDistanceString+"mi");
+            editor.commit();
+        }
 
     }
 

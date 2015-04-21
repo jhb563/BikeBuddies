@@ -6,7 +6,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="1.25"
         android:id="@+id/ride_date"
         android:textSize="@dimen/ride_screen_large_text"
         android:layout_margin="@dimen/ride_screen_margin"/>
@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight=".75"
         android:id="@+id/ride_distance"
         android:textSize="@dimen/ride_screen_large_text"
         android:layout_margin="@dimen/ride_screen_margin"/>
@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight=".75"
         android:id="@+id/ride_time"
         android:textSize="@dimen/ride_screen_large_text"
         android:layout_margin="@dimen/ride_screen_margin"/>
