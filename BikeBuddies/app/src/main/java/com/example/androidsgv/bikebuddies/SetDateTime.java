@@ -49,6 +49,7 @@ public class SetDateTime extends ActionBarActivity {
             friendName = "Friend";
         } else{
             friendName = ( extras.getString("name_of_friend"));
+            Log.d("Sam", "my friend name is: " + friendName);
         }
     }
 
@@ -185,10 +186,12 @@ public class SetDateTime extends ActionBarActivity {
                             SharedPreferences preferences = getActivity().getSharedPreferences("Notifications", 0);
                             SharedPreferences.Editor editor = preferences.edit();
 
-                            String finalString = SetDateTime.friendName + " has accepted your request!";
-                            Log.d("Sam", "here's what we saved: " + finalString);
+
+
                             final Calendar c = Calendar.getInstance();
                             String dateTimeString = c.toString();
+                            String finalString = SetDateTime.friendName + " has accepted your request!" +"," + dateTimeString;
+                            Log.d("Sam", "here's what we saved: " + finalString);
                             editor.putString(dateTimeString,finalString);
                             editor.commit();
                             //end with notification making things

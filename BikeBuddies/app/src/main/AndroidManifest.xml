@@ -68,6 +68,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.androidsgv.bikebuddies.MainScreen" />
         </activity>
+        <activity
+            android:name=".NotificationsScreen"
+            android:label="@string/title_activity_notifications_screen"
+            android:parentActivityName=".MainScreen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.androidsgv.bikebuddies.MainScreen" />
+        </activity>
     </application>
 
 </manifest>
