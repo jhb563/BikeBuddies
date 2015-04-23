@@ -74,5 +74,6 @@
     <string name="confirm">Your invitation has been sent!</string>
     <string name="ok">OK</string>
     <string name="title_activity_my_ride_history">My Ride History</string>
+    <string name="title_activity_activity_find_friends">activity_find_friends</string>
 
 </resources>

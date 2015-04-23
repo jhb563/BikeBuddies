@@ -61,12 +61,26 @@ public class SetDateTime extends ActionBarActivity {
         mSelectedYear = y;
         mSelectedMonth = m;
         mSelectedDate = d;
+        Button date = (Button) findViewById(R.id.setDate);
+        date.setText("Date: " + m + "-" + d +"-" + y);
     }
 
     public void setTime(int h, int s) {
+        String amPM = " AM";
+        if (h==0) {
+            h = 12;
+        }
+        else if (h >= 12) {
+            if (h > 12)
+                h = h - 12;
+            amPM = " PM";
+        }
         mSelectedHour = h;
         mSelectedSecond = s;
+        Button time = (Button) findViewById(R.id.setTime);
+        time.setText("Time: " + h + ":" + s + amPM);
     }
+
 
 
     @Override

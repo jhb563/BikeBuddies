@@ -50,15 +50,16 @@ public class FindFriends extends ActionBarActivity {
         //ADDED FOR NOTIFICATION PURPOSES
         TextView tv = (TextView) v.findViewById(v.getId());
         friendName = "Name Error";
-        switch (v.getId()){
-            case R.id.friend1Button:
-
-                friendName = getResources().getString(R.string.friend1);
-            case R.id.friend2Button:
-                friendName = getResources().getString(R.string.friend2);
-            case R.id.friend3Button:
-                friendName = getResources().getString(R.string.friend3);
+        if (v.getId() == R.id.friend1Button){
+            friendName = getResources().getString(R.string.friend1);
         }
+        if (v.getId() == R.id.friend2Button){
+            friendName = getResources().getString(R.string.friend2);
+        }
+        if (v.getId() == R.id.friend3Button){
+            friendName = getResources().getString(R.string.friend3);
+        }
+
         Log.d("Sam", "friend name to pass is:" + friendName);
         intent.putExtra("name_of_friend", friendName);
         //END ADDITIONS
