@@ -3,6 +3,7 @@ package com.example.androidsgv.bikebuddies;
 import android.app.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -28,10 +29,14 @@ public class MainScreen extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
+        //TAKE OUT
+        SharedPreferences prefs = getSharedPreferences("Notifications", 0);
+        prefs.edit().clear().apply();
+
         leaderboardButton = (Button) findViewById(R.id.leaderboardButton);
         startRideButton = (Button) findViewById(R.id.startRideButton);
         friendsButton = (Button) findViewById(R.id.findfriendsButton);
-        welcomeName = (TextView) findViewById(R.id.textViewName);
+        welcomeName = (Button) findViewById(R.id.buttonName);
         String userName = String.format(getResources().getString(R.string.user_name),
                 getResources().getString(R.string.THIS_USER) );
         welcomeName.setText(userName);
@@ -88,6 +93,11 @@ public class MainScreen extends ActionBarActivity {
 
     public void openMyHistory(View v) {
         Intent intent = new Intent(this,MyRideHistoryActivity.class);
+        startActivity(intent);
+    }
+
+    public void seeNotifications(View v){
+        Intent intent = new Intent(this, NotificationsScreen.class);
         startActivity(intent);
     }
 }

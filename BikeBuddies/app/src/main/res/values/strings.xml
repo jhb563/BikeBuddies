@@ -8,15 +8,14 @@
     <string name="title_activity_ride_screen">Record a Ride</string>
     <string name="title_activity_find_friends">Find Friends!</string>
     <string name="title_activity_leaderboard_screen">Class Leaderboard</string>
+    <string name="title_activity_notifications_screen">Notifications</string>
     <string name="THIS_USER">Jim B.</string>
 
     <!-- strings for use in the main screen-->
-    <string name="notification_button_text">Notifications</string>
     <string name="start_ride_button_text">Start Ride!</string>
     <string name="history_button_text">My History</string>
-    <string name="leaderboard_button_text">Class Leaderboard</string>
+    <string name="leaderboard_button_text">My Class</string>
     <string name="find_friends_button_text">Find Friends!</string>
-    <string name="route_rec_button_text">Route Records</string>
     <string name="user_name">Welcome, %1$s! </string>
 
     <!-- strings for use in the class leaderboard-->
@@ -75,5 +74,6 @@
     <string name="confirm">Your invitation has been sent!</string>
     <string name="ok">OK</string>
     <string name="title_activity_my_ride_history">My Ride History</string>
+    <string name="title_activity_activity_find_friends">activity_find_friends</string>
 
 </resources>

@@ -3,9 +3,11 @@ package com.example.androidsgv.bikebuddies;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 
 public class FindFriends extends ActionBarActivity {
@@ -43,8 +45,25 @@ public class FindFriends extends ActionBarActivity {
     }
 
     public void setDateTime(View v) {
+        String friendName;
         Intent intent = new Intent(this,SetDateTime.class);
-        startActivityForResult(intent,FINISH_CODE);
+        //ADDED FOR NOTIFICATION PURPOSES
+        TextView tv = (TextView) v.findViewById(v.getId());
+        friendName = "Name Error";
+        if (v.getId() == R.id.friend1Button){
+            friendName = getResources().getString(R.string.friend1);
+        }
+        if (v.getId() == R.id.friend2Button){
+            friendName = getResources().getString(R.string.friend2);
+        }
+        if (v.getId() == R.id.friend3Button){
+            friendName = getResources().getString(R.string.friend3);
+        }
+
+        Log.d("Sam", "friend name to pass is:" + friendName);
+        intent.putExtra("name_of_friend", friendName);
+        //END ADDITIONS
+        startActivityForResult(intent, FINISH_CODE);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
