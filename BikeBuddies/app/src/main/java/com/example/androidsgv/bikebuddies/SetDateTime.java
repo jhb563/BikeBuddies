@@ -217,6 +217,17 @@ public class SetDateTime extends ActionBarActivity {
                             editor.putString(dateTimeString,finalString);
                             editor.commit();
                             //end with notification making things
+                            //start with notification badge making
+                            SharedPreferences preferencesBadge = getActivity().getSharedPreferences("NotifyBadge", 0);
+                            SharedPreferences.Editor editorBadge = preferencesBadge.edit();
+                            //42 means something went wrong and we couldn't get the real value
+                            int valueToChange = preferencesBadge.getInt("numNotify", 42);
+                            valueToChange += 1;
+                            Log.d("Sam value", Integer.toString(valueToChange));
+                            editorBadge.putInt("numNotify", valueToChange);
+                            editorBadge.commit();
+                            //end with notification badge making
+
 
                             Intent newIntent = new Intent();
                             newIntent.putExtra(finishString,true);

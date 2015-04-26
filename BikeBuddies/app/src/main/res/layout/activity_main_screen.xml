@@ -15,21 +15,39 @@
         android:layout_marginBottom="10dp"
         android:paddingLeft="17dp"/>
 
-    <Button
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="160sp"
         android:layout_height="70sp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/buttonName"
-        android:text="@string/notify_button_text"
-        android:textStyle="bold"
-        android:background="@drawable/button_background_lightblue"
-        android:gravity="center"
-        android:onClick="seeNotifications"
         android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="35dp"/>
+        android:layout_toEndOf="@+id/imageView">
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/buttonNotify"
+            android:text="@string/notify_button_text"
+            android:textStyle="bold"
+            android:onClick="seeNotifications"
+            android:background="@drawable/button_background_lightblue"
+            android:layout_marginTop="35dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/badgeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="5sp"
+            android:background="@drawable/badge_circle"
+            />
+    </RelativeLayout>
+
+
+
 
     <ImageButton
         android:layout_width="160sp"

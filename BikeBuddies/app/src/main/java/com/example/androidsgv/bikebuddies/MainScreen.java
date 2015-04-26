@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,10 +17,11 @@ import android.widget.TextView;
 
 public class MainScreen extends ActionBarActivity {
 
-    TextView welcomeName;
+    Button notifyButton;
     ImageButton leaderboardButton;
     ImageButton startRideButton;
     ImageButton friendsButton;
+    TextView badgeNumber;
 
 
     private static final int RIDE_CODE = 1;
@@ -33,11 +35,19 @@ public class MainScreen extends ActionBarActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
+        SharedPreferences preferences = getSharedPreferences("NotifyBadge",0);
+        //77 means something went wrong and we couldn't get the real value
+        int value = preferences.getInt("numNotify", 77);
+
 
         leaderboardButton = (ImageButton) findViewById(R.id.leaderboardButton);
         startRideButton = (ImageButton) findViewById(R.id.startRideButton);
         friendsButton = (ImageButton) findViewById(R.id.findfriendsButton);
-        welcomeName = (Button) findViewById(R.id.buttonName);
+        notifyButton = (Button) findViewById(R.id.buttonNotify);
+        badgeNumber = (TextView) findViewById(R.id.badgeText);
+        Log.d("SAM", "value is: " + Integer.toString(value));
+        badgeNumber.setText(Integer.toString(value));
+
 
 
     }

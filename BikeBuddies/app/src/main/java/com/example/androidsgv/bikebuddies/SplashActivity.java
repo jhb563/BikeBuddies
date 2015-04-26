@@ -5,6 +5,7 @@ package com.example.androidsgv.bikebuddies;
  */
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
@@ -22,6 +23,14 @@ public class SplashActivity extends ActionBarActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_splash);
+
+        SharedPreferences preferences = getSharedPreferences("NotifyBadge",0);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        int numNotify = 0;
+
+        editor.putInt("numNotify",numNotify);
+        editor.commit();
 
         /* New Handler to start the Menu-Activity
          * and close this Splash-Screen after some seconds.*/

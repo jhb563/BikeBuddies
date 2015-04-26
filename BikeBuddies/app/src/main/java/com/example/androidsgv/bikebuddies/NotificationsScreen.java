@@ -33,6 +33,11 @@ public class NotificationsScreen extends ActionBarActivity {
         // Make logo show up in action bar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        //reset badge
+        SharedPreferences preferencesBadge = this.getSharedPreferences("NotifyBadge", 0);
+        SharedPreferences.Editor editorBadge = preferencesBadge.edit();
+        editorBadge.putInt("numNotify", 0);
+        editorBadge.commit();
 
         SharedPreferences preferences = getSharedPreferences("Notifications",0);
 
