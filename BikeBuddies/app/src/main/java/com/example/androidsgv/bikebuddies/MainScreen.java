@@ -10,15 +10,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
 public class MainScreen extends ActionBarActivity {
 
     TextView welcomeName;
-    Button leaderboardButton;
-    Button startRideButton;
-    Button friendsButton;
+    ImageButton leaderboardButton;
+    ImageButton startRideButton;
+    ImageButton friendsButton;
 
 
     private static final int RIDE_CODE = 1;
@@ -28,18 +29,15 @@ public class MainScreen extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+        // Make logo show up in action bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        //TAKE OUT
-        //SharedPreferences prefs = getSharedPreferences("Notifications", 0);
-//        prefs.edit().clear().apply();
 
-        leaderboardButton = (Button) findViewById(R.id.leaderboardButton);
-        startRideButton = (Button) findViewById(R.id.startRideButton);
-        friendsButton = (Button) findViewById(R.id.findfriendsButton);
+        leaderboardButton = (ImageButton) findViewById(R.id.leaderboardButton);
+        startRideButton = (ImageButton) findViewById(R.id.startRideButton);
+        friendsButton = (ImageButton) findViewById(R.id.findfriendsButton);
         welcomeName = (Button) findViewById(R.id.buttonName);
-        String userName = String.format(getResources().getString(R.string.user_name),
-                getResources().getString(R.string.THIS_USER) );
-        welcomeName.setText(userName);
 
 
     }

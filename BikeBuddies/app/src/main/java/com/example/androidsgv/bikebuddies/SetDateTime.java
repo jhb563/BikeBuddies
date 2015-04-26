@@ -44,6 +44,9 @@ public class SetDateTime extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_date_time);
+        // Make logo show up in action bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         EditText textBox = (EditText) findViewById(R.id.EditTextFeedbackBody);
         textBox.setImeOptions(EditorInfo.IME_ACTION_DONE);

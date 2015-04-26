@@ -30,6 +30,9 @@ public class NotificationsScreen extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_screen);
+        // Make logo show up in action bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         SharedPreferences preferences = getSharedPreferences("Notifications",0);
 

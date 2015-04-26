@@ -12,7 +12,10 @@
         android:id="@+id/setDate"
         android:layout_height="wrap_content"
         android:text="@string/set_date"
+        android:textAllCaps="false"
+        android:background="@drawable/button_background_lightblue"
         android:onClick="showDatePickerDialog"
+        android:layout_margin="20sp"
         android:layout_width="fill_parent">
     </Button>
 
@@ -21,7 +24,10 @@
         android:id="@+id/setTime"
         android:layout_height="wrap_content"
         android:text="@string/set_time"
+        android:textAllCaps="false"
+        android:background="@drawable/button_background_midblue"
         android:onClick="showTimePickerDialog"
+        android:layout_margin="20sp"
         android:layout_width="fill_parent">
     </Button>
 
@@ -53,9 +59,10 @@
         android:id="@+id/SendInvite"
         android:layout_height="wrap_content"
         android:text="@string/send_invite"
+        android:background="@drawable/button_background_darkblue"
         android:layout_width="fill_parent"
+        android:layout_margin="20sp"
         android:onClick="yesNoAlert">
-        <!--android:background="@drawable/button_background_darkblue">-->
     </Button>
 
 </LinearLayout>

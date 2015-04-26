@@ -14,6 +14,7 @@
 
         <TableRow
             android:id="@+id/tableRow1"
+            android:layout_margin="5sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:baselineAligned="false">
@@ -24,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/friend1"
-                android:textSize="10pt">
+                android:textSize="10pt"
+                android:padding="5sp">
             </TextView>
 
             <Button
@@ -32,7 +34,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/invite"
                 android:onClick="setDateTime"
-                android:layout_width="fill_parent">
+                android:layout_width="fill_parent"
+                android:padding="5sp"
+                android:background="@drawable/button_background_lightblue">
             </Button>
 
 
@@ -42,6 +46,7 @@
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5sp"
             android:baselineAligned="false">
 
             <TextView
@@ -50,7 +55,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/friend2"
-                android:textSize="10pt">
+                android:textSize="10pt"
+                android:padding="5sp">
             </TextView>
 
             <Button
@@ -58,7 +64,9 @@
                 android:layout_height="wrap_content"
                 android:text="@string/invite"
                 android:onClick="setDateTime"
-                android:layout_width="fill_parent">
+                android:layout_width="fill_parent"
+                android:padding="5sp"
+                android:background="@drawable/button_background_lightblue">
             </Button>
 
         </TableRow>
@@ -67,6 +75,7 @@
             android:id="@+id/tableRow3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5sp"
             android:baselineAligned="false">
 
             <TextView
@@ -75,7 +84,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="@string/friend3"
-                android:textSize="10pt">
+                android:textSize="10pt"
+                android:padding="5sp">
             </TextView>
 
             <Button
@@ -83,7 +93,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/invite"
                 android:onClick="setDateTime"
-                android:layout_width="fill_parent">
+                android:padding="5sp"
+                android:background="@drawable/button_background_lightblue">
             </Button>
 
         </TableRow>
