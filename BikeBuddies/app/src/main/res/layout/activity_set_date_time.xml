@@ -41,9 +41,10 @@
         android:id="@+id/EditTextFeedbackBody"
         android:layout_height="wrap_content"
         android:hint="@string/where"
-        android:inputType="textMultiLine"
-        android:lines="5"
-        android:layout_width="fill_parent">
+        android:inputType="text"
+        android:layout_width="fill_parent"
+        android:singleLine="true"
+        android:imeOptions="actionDone">
     </EditText>
 
 

@@ -25,9 +25,9 @@ public class LeaderboardScreen extends ActionBarActivity {
         setContentView(R.layout.activity_leaderboard_screen);
 
         SharedPreferences preferences = getSharedPreferences("Class",0);
-        SharedPreferences.Editor editor = preferences.edit();
-
-        // Use this code to reset the class list to the default.
+//        SharedPreferences.Editor editor = preferences.edit();
+//
+////        Use this code to reset the class list to the default.
 //        editor.clear();
 //        editor.commit();
 //

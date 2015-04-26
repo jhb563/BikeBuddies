@@ -31,6 +31,10 @@ public class MyRideHistoryActivity extends ActionBarActivity {
 
         SharedPreferences preferences = getSharedPreferences("Ride History",0);
 
+//        SharedPreferences.Editor edit = preferences.edit();
+//        edit.clear();
+//        edit.commit();
+
         Map<String,String> rideEntries = (Map<String,String>) preferences.getAll();
         ArrayList<String[]> rides = new ArrayList<String[]>();
 

@@ -43,6 +43,7 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
     private GoogleMap mMap;
     private LocationRequest mLocationRequest;
     private PopupWindow endRidePopup;
+    private PopupWindow cancelRidePopup;
     private static final String goToLeaderBoardKey = "GoToLeaderBoardKey";
     private static final int RIDE_CODE = 1;
     private Chronometer mChronometer;
@@ -59,6 +60,7 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         buildGoogleApiClient();
         mGoogleApiClient.connect();
         popupInit();
+        cancelInit();
         totalDistance = 0;
 
     }
@@ -336,11 +338,47 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         endRidePopup.setContentView(popupLayout);
     }
 
+    private void cancelInit() {
+        int fontSize = 16;
+
+        LinearLayout popupLayout = new LinearLayout(this);
+        popupLayout.setBackgroundColor(0xFFFFFFFF);
+        popupLayout.setOrientation(LinearLayout.VERTICAL);
+
+        TextView cancelMessage = new TextView(this);
+        cancelMessage.setText(R.string.cancel_message);
+        cancelMessage.setTextSize(fontSize);
+        popupLayout.addView(cancelMessage);
+
+        Button yesButton = new Button(this);
+        yesButton.setOnClickListener(this);
+        yesButton.setText("Yes");
+        yesButton.setTextSize(fontSize);
+        popupLayout.addView(yesButton);
+
+        Button noButton = new Button(this);
+        noButton.setOnClickListener(this);
+        noButton.setText("No");
+        noButton.setTextSize(fontSize);
+        popupLayout.addView(noButton);
+
+
+
+        cancelRidePopup = new PopupWindow(popupLayout, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        cancelRidePopup.setContentView(popupLayout);
+    }
+
+
     // Listener for button in popup listener
     public void onClick(View v) {
         String text = ((Button) v).getText().toString();
         if (text.equals("Home")) {
             endRidePopup.dismiss();
+            finish();
+        } else if (text.equals("No")) {
+           cancelRidePopup.dismiss();
+        } else if (text.equals("Yes")) {
+            cancelRidePopup.dismiss();
             finish();
         } else {
             endRidePopup.dismiss();
@@ -350,6 +388,10 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
             finish();
         }
 
+    }
+
+    public void onBackPressed() {
+        cancelRidePopup.showAtLocation(findViewById(R.id.top_layout), Gravity.CENTER_HORIZONTAL,0,0);
     }
 
     public void onChronometerTick(Chronometer chronometer) {

@@ -45,8 +45,9 @@
     <string name="current_time_string">Current Time</string>
     <string name="current_distance_string">Current Distance</string>
     <string name="initial_time_string">00:00:00</string>
-    <string name="initial_distance_string">0.0 Miles</string>
+    <string name="initial_distance_string">0.0</string>
     <string name="finish_message">Congratulations on your \n awesome ride!</string>
+    <string name="cancel_message">Are you sure you want to \n cancel this ride?\n Stats will not be saved!</string>
     <string name="total_time">Total Time:\  </string>
     <string name="total_distance">Total Distance:\  </string>
 

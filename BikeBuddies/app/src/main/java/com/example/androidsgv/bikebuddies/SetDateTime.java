@@ -15,8 +15,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -42,6 +44,9 @@ public class SetDateTime extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_date_time);
+
+        EditText textBox = (EditText) findViewById(R.id.EditTextFeedbackBody);
+        textBox.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         //set up notification in case we actually do send the request to a friend
         extras = getIntent().getExtras();
