@@ -30,8 +30,8 @@ public class MainScreen extends ActionBarActivity {
         setContentView(R.layout.activity_main_screen);
 
         //TAKE OUT
-        SharedPreferences prefs = getSharedPreferences("Notifications", 0);
-        prefs.edit().clear().apply();
+        //SharedPreferences prefs = getSharedPreferences("Notifications", 0);
+//        prefs.edit().clear().apply();
 
         leaderboardButton = (Button) findViewById(R.id.leaderboardButton);
         startRideButton = (Button) findViewById(R.id.startRideButton);
