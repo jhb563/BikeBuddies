@@ -35,9 +35,6 @@ public class MainScreen extends ActionBarActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        SharedPreferences preferences = getSharedPreferences("NotifyBadge",0);
-        //77 means something went wrong and we couldn't get the real value
-        int value = preferences.getInt("numNotify", 77);
 
 
         leaderboardButton = (ImageButton) findViewById(R.id.leaderboardButton);
@@ -45,9 +42,21 @@ public class MainScreen extends ActionBarActivity {
         friendsButton = (ImageButton) findViewById(R.id.findfriendsButton);
         notifyButton = (Button) findViewById(R.id.buttonNotify);
         badgeNumber = (TextView) findViewById(R.id.badgeText);
-        Log.d("SAM", "value is: " + Integer.toString(value));
-        badgeNumber.setText(Integer.toString(value));
+        int seen = 0;
+        Log.d("Sam", "has been here" +Integer.toString(seen));
+        seen++;
 
+        this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                badgeNumber = (TextView) findViewById(R.id.badgeText);
+                SharedPreferences preferences = getSharedPreferences("NotifyBadge",0);
+                //77 means something went wrong and we couldn't get the real value
+                int value = preferences.getInt("numNotify", 77);
+                Log.d("SAM", "value is: " + Integer.toString(value));
+                badgeNumber.setText(Integer.toString(value));
+            }
+        });
 
 
     }
