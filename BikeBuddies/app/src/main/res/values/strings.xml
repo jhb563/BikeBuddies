@@ -9,6 +9,7 @@
     <string name="title_activity_find_friends">Find Friends!</string>
     <string name="title_activity_leaderboard_screen">Class Leaderboard</string>
     <string name="title_activity_notifications_screen">Notifications</string>
+    <string name="title_splash_screen">Bike Buddies</string>
     <string name="THIS_USER">Jim B.</string>
 
     <!-- strings for use in the main screen-->
@@ -16,7 +17,7 @@
     <string name="history_button_text">My History</string>
     <string name="leaderboard_button_text">My Class</string>
     <string name="find_friends_button_text">Find Friends!</string>
-    <string name="user_name">Welcome, %1$s! </string>
+    <string name="notify_button_text">Notifications</string>
 
     <!-- strings for use in the class leaderboard-->
     <string name="leaderboard_data_bar_student">Student</string>
@@ -60,9 +61,9 @@
     <string name="friend4">Sam E.</string>
 
     <!--SetDateTime-->
-    <string name="title_activity_set_date_time">Set the Times That Are Good for You </string>
-    <string name="set_date">Choose the date</string>
-    <string name="set_time">Choose the time</string>
+    <string name="title_activity_set_date_time">Set When Is Good for You </string>
+    <string name="set_date">Choose the Date</string>
+    <string name="set_time">Choose the Time</string>
     <string name="where">Where will you meet?</string>
     <string name="send_invite">Invite your friend!</string>
 

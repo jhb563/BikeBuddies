@@ -15,64 +15,83 @@
         android:layout_marginBottom="10dp"
         android:paddingLeft="17dp"/>
 
-    <Button
-        android:layout_width="160dp"
-        android:layout_height="70dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/buttonName"
-        android:text="@string/user_name"
-        android:background="@drawable/button_background_lightblue"
-        android:gravity="center"
-        android:paddingRight="17dp"
-        android:onClick="seeNotifications"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="220sp"
+        android:layout_height="100sp"
         android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="35dp"/>
+        android:layout_toEndOf="@+id/imageView">
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/buttonNotify"
+            android:text="@string/notify_button_text"
+            android:textStyle="bold"
+            android:onClick="seeNotifications"
+            android:background="@drawable/button_background_lightblue"
+            android:layout_margin="30dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/badgeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:text=""
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="20sp"
+            android:background="@drawable/badge_circle"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
 
-    <Button
-        android:layout_width="160dp"
-        android:layout_height="120dp"
+
+
+
+    <ImageButton
+        android:layout_width="160sp"
+        android:layout_height="120sp"
         android:text="@string/find_friends_button_text"
+        android:textColor="#FFFFFF"
         android:id="@+id/findfriendsButton"
         android:onClick="findFriends"
         android:textAllCaps="false"
-        android:background="@drawable/button_background_darkblue"
+        android:background="@drawable/button_background_friends"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="160dp"
-        android:layout_height="120dp"
+    <ImageButton
+        android:layout_width="160sp"
+        android:layout_height="120sp"
         android:text="@string/history_button_text"
         android:id="@+id/history_button"
         android:textAllCaps="false"
-        android:background="@drawable/button_background_midblue"
+        android:background="@drawable/button_background_history"
         android:onClick="openMyHistory"
         android:layout_alignTop="@+id/leaderboardButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button android:text="@string/start_ride_button_text"
-        android:layout_height="120dp"
-        android:layout_width="160dp"
+    <ImageButton android:text="@string/start_ride_button_text"
+        android:layout_height="120sp"
+        android:layout_width="160sp"
         android:id="@+id/startRideButton"
         android:onClick="startRide"
         android:textAllCaps="false"
-        android:background="@drawable/button_background_darkblue"
+        android:background="@drawable/button_background_startride"
         android:layout_alignTop="@+id/findfriendsButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Button android:text="@string/leaderboard_button_text"
-        android:layout_height="120dp"
-        android:layout_width="160dp"
+    <ImageButton android:text="@string/leaderboard_button_text"
+        android:layout_height="120sp"
+        android:layout_width="160sp"
         android:id="@+id/leaderboardButton"
         android:onClick="goToLeaderboard"
         android:textAllCaps="false"
-        android:background="@drawable/button_background_midblue"
+        android:background="@drawable/button_background_class"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

@@ -44,6 +44,9 @@ public class SetDateTime extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_date_time);
+        // Make logo show up in action bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         EditText textBox = (EditText) findViewById(R.id.EditTextFeedbackBody);
         textBox.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -67,7 +70,7 @@ public class SetDateTime extends ActionBarActivity {
         mSelectedMonth = m;
         mSelectedDate = d;
         Button date = (Button) findViewById(R.id.setDate);
-        date.setText("Date: " + m + "-" + d +"-" + y);
+        date.setText("Date: " + Integer.toString(m+1) + "-" + Integer.toString(d) +"-" + Integer.toString(y));
     }
 
     public void setTime(int h, int s) {
@@ -214,6 +217,17 @@ public class SetDateTime extends ActionBarActivity {
                             editor.putString(dateTimeString,finalString);
                             editor.commit();
                             //end with notification making things
+                            //start with notification badge making
+                            SharedPreferences preferencesBadge = getActivity().getSharedPreferences("NotifyBadge", 0);
+                            SharedPreferences.Editor editorBadge = preferencesBadge.edit();
+                            //42 means something went wrong and we couldn't get the real value
+                            int valueToChange = preferencesBadge.getInt("numNotify", 42);
+                            valueToChange += 1;
+                            Log.d("Sam value", Integer.toString(valueToChange));
+                            editorBadge.putInt("numNotify", valueToChange);
+                            editorBadge.commit();
+                            //end with notification badge making
+
 
                             Intent newIntent = new Intent();
                             newIntent.putExtra(finishString,true);

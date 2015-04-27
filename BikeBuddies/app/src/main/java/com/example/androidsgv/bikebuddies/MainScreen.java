@@ -6,19 +6,22 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
 public class MainScreen extends ActionBarActivity {
 
-    TextView welcomeName;
-    Button leaderboardButton;
-    Button startRideButton;
-    Button friendsButton;
+    Button notifyButton;
+    ImageButton leaderboardButton;
+    ImageButton startRideButton;
+    ImageButton friendsButton;
+    TextView badgeNumber;
 
 
     private static final int RIDE_CODE = 1;
@@ -28,22 +31,55 @@ public class MainScreen extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-
-        //TAKE OUT
-        //SharedPreferences prefs = getSharedPreferences("Notifications", 0);
-//        prefs.edit().clear().apply();
-
-        leaderboardButton = (Button) findViewById(R.id.leaderboardButton);
-        startRideButton = (Button) findViewById(R.id.startRideButton);
-        friendsButton = (Button) findViewById(R.id.findfriendsButton);
-        welcomeName = (Button) findViewById(R.id.buttonName);
-        String userName = String.format(getResources().getString(R.string.user_name),
-                getResources().getString(R.string.THIS_USER) );
-        welcomeName.setText(userName);
+        // Make logo show up in action bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
 
+
+        leaderboardButton = (ImageButton) findViewById(R.id.leaderboardButton);
+        startRideButton = (ImageButton) findViewById(R.id.startRideButton);
+        friendsButton = (ImageButton) findViewById(R.id.findfriendsButton);
+        notifyButton = (Button) findViewById(R.id.buttonNotify);
+        badgeNumber = (TextView) findViewById(R.id.badgeText);
+        int seen = 0;
+        Log.d("Sam", "has been here" +Integer.toString(seen));
+        setNotifyTextView();
+
+
+
+//        this.runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                badgeNumber = (TextView) findViewById(R.id.badgeText);
+//                SharedPreferences preferences = getSharedPreferences("NotifyBadge",0);
+//                //77 means something went wrong and we couldn't get the real value
+//                int value = preferences.getInt("numNotify", 77);
+//                Log.d("SAM", "value is: " + Integer.toString(value));
+//                badgeNumber.setText(Integer.toString(value));
+//                Log.d("SAM", "value is after: " + badgeNumber.getText());
+//            }
+//        });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setNotifyTextView();
+    }
+
+//
+//    public void onRestoreInstanceState(Bundle savedInstanceState) {
+//        // Always call the superclass so it can restore the view hierarchy
+//        super.onRestoreInstanceState(savedInstanceState);
+//        setNotifyTextView();
+//        badgeNumber = (TextView) findViewById(R.id.badgeText);
+//        SharedPreferences preferences = getSharedPreferences("NotifyBadge",0);
+//        //77 means something went wrong and we couldn't get the real value
+//        int value = preferences.getInt("numNotify", 77);
+//        Log.d("SAM", "value is: " + Integer.toString(value));
+//        badgeNumber.setText(Integer.toString(value));
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,6 +101,17 @@ public class MainScreen extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setNotifyTextView(){
+        badgeNumber = (TextView) findViewById(R.id.badgeText);
+        SharedPreferences preferencesNotify = getSharedPreferences("NotifyBadge",0);
+        //77 means something went wrong and we couldn't get the real value
+        int value = preferencesNotify.getInt("numNotify", 77);
+        Log.d("SAM", "value is: " + Integer.toString(value));
+        badgeNumber.setText(Integer.toString(value));
+        Log.d("SAM", "value is after: " + badgeNumber.getText());
+
     }
 
     public void startRide(View v) {

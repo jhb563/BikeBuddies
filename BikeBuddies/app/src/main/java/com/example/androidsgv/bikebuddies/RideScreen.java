@@ -63,6 +63,7 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         cancelInit();
         totalDistance = 0;
 
+
     }
 
     private void initChronometer() {
