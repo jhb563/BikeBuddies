@@ -70,7 +70,7 @@ public class SetDateTime extends ActionBarActivity {
         mSelectedMonth = m;
         mSelectedDate = d;
         Button date = (Button) findViewById(R.id.setDate);
-        date.setText("Date: " + m + "-" + d +"-" + y);
+        date.setText("Date: " + Integer.toString(m+1) + "-" + Integer.toString(d) +"-" + Integer.toString(y));
     }
 
     public void setTime(int h, int s) {
