@@ -20,6 +20,10 @@
         android:layout_height="100sp"
         android:layout_toRightOf="@+id/imageView"
         android:layout_toEndOf="@+id/imageView">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/button_background_lightblue"/>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -29,21 +33,32 @@
             android:textStyle="bold"
             android:onClick="seeNotifications"
             android:background="@drawable/button_background_lightblue"
-            android:layout_margin="30dp"
+            android:layout_margin="25dp"
             android:gravity="center"/>
         <TextView
             android:id="@+id/badgeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textColor="@color/material_blue_grey_800"
+            android:text=""
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:padding="20sp"
+            android:background="@color/material_blue_grey_800"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:textColor="#FFFFFF"
             android:text=""
             android:textSize="16sp"
             android:textStyle="bold"
             android:padding="20sp"
             android:background="@drawable/badge_circle"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            />
+
     </RelativeLayout>
 
 
