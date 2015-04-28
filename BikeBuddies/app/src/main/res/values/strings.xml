@@ -10,7 +10,8 @@
     <string name="title_activity_leaderboard_screen">Class Leaderboard</string>
     <string name="title_activity_notifications_screen">Notifications</string>
     <string name="title_splash_screen">Bike Buddies</string>
-    <string name="THIS_USER">Jim B.</string>
+    <string name="THIS_USER">Hannah</string>
+    <string name="welcome_user">Welcome, Hannah!</string>
 
     <!-- strings for use in the main screen-->
     <string name="start_ride_button_text">Start Ride!</string>
@@ -27,11 +28,11 @@
 
 
     <string-array name="peoplearray">
-        <item >Hannah Y.</item>
+        <item >Jim B.</item>
         <item >James B.</item>
         <item >Vanessa R</item>
         <item >George S.</item>
-        <item >Jim B.</item>
+        <item >Hannah</item>
     </string-array>
 
     <string-array name="timemileagearray">
