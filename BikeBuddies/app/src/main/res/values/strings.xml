@@ -61,7 +61,7 @@
     <string name="friend4">Sam E.</string>
 
     <!--SetDateTime-->
-    <string name="title_activity_set_date_time">Set When Is Good for You </string>
+    <string name="title_activity_set_date_time">Invitation Details</string>
     <string name="set_date">Choose the Date</string>
     <string name="set_time">Choose the Time</string>
     <string name="where">Where will you meet?</string>
