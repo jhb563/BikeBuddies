@@ -216,7 +216,7 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         editor.commit();
 
         preferences = getSharedPreferences("Class",0);
-        String currentUser = "Jim B.";
+        String currentUser = "Hannah";
         editor = preferences.edit();
         String[] oldTimeAndDist = preferences.getString(currentUser,"").split("   ");
         if (oldTimeAndDist.length < 3) {

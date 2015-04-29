@@ -24,13 +24,17 @@ public class SplashActivity extends ActionBarActivity {
         super.onCreate(icicle);
         setContentView(R.layout.activity_splash);
 
+
+        //reset the number of notifications show in the badge to 0 for display purposes
         SharedPreferences preferences = getSharedPreferences("NotifyBadge",0);
         SharedPreferences.Editor editor = preferences.edit();
-
         int numNotify = 0;
-
         editor.putInt("numNotify",numNotify);
         editor.commit();
+
+        //reset the notifications visible for display purposes
+        SharedPreferences prefs = getSharedPreferences("Notifications", 0);
+        prefs.edit().clear().commit();
 
         /* New Handler to start the Menu-Activity
          * and close this Splash-Screen after some seconds.*/

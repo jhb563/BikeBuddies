@@ -6,20 +6,50 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainScreen"
     android:orientation="vertical">
-    <ImageView
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/profile_image_hdpi"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="10dp"
-        android:paddingLeft="17dp"/>
+        android:id="@+id/user_things"
+        android:layout_marginTop="30dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/hyphoto"
+            android:paddingLeft="13dp"
+            android:paddingStart="13dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_user"
+            android:textStyle="bold"
+            android:layout_below="@+id/imageView"
+            android:gravity="center"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="18dp"/>
+        </FrameLayout>
+
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="220sp"
-        android:layout_height="100sp"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView">
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_toRightOf="@+id/user_things"
+        android:layout_alignTop="@+id/user_things"
+        android:layout_alignRight="@+id/startRideButton"
+        android:layout_alignEnd="@+id/startRideButton"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp">
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:background="@drawable/button_background_lightblue_notify"
+            android:id="@+id/backgroundforbadge"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp"
+            />
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -28,22 +58,50 @@
             android:text="@string/notify_button_text"
             android:textStyle="bold"
             android:onClick="seeNotifications"
-            android:background="@drawable/button_background_lightblue"
-            android:layout_margin="25dp"
-            android:gravity="center"/>
+            android:alpha="0.0"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/buttonText"
+            android:text="@string/notify_button_text"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true" />
+>>>>>>> 5fd20988ecab09dafada40c8e73e9f874ce1d7d5
         <TextView
             android:id="@+id/badgeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:textColor="#FFFFFF"
-            android:text=""
+            android:gravity="center_horizontal"
+            android:text="0"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:padding="20sp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
             android:background="@drawable/badge_circle"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="3dp"
+            />
+
     </RelativeLayout>
 
 
@@ -58,7 +116,7 @@
         android:onClick="findFriends"
         android:textAllCaps="false"
         android:background="@drawable/button_background_friends"
-        android:layout_centerVertical="true"
+        android:layout_alignTop="@+id/startRideButton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -70,7 +128,7 @@
         android:textAllCaps="false"
         android:background="@drawable/button_background_history"
         android:onClick="openMyHistory"
-        android:layout_alignTop="@+id/leaderboardButton"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -81,9 +139,10 @@
         android:onClick="startRide"
         android:textAllCaps="false"
         android:background="@drawable/button_background_startride"
-        android:layout_alignTop="@+id/findfriendsButton"
+        android:layout_above="@+id/leaderboardButton"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="28dp" />
 
     <ImageButton android:text="@string/leaderboard_button_text"
         android:layout_height="120sp"
@@ -92,9 +151,9 @@
         android:onClick="goToLeaderboard"
         android:textAllCaps="false"
         android:background="@drawable/button_background_class"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignTop="@+id/history_button"
+        android:layout_alignLeft="@+id/startRideButton"
+        android:layout_alignStart="@+id/startRideButton" />
 
 
 
