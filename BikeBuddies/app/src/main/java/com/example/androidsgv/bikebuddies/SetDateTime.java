@@ -39,6 +39,8 @@ public class SetDateTime extends ActionBarActivity {
     private int mSelectedSecond;
     private Bundle extras;
     public static String friendName = "no name";
+    public static String dateToPrint;
+    public static String timeToPrint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +72,8 @@ public class SetDateTime extends ActionBarActivity {
         mSelectedMonth = m;
         mSelectedDate = d;
         Button date = (Button) findViewById(R.id.setDate);
-        date.setText("Date: " + Integer.toString(m+1) + "-" + Integer.toString(d) +"-" + Integer.toString(y));
+        date.setText("Date: " + Integer.toString(m+1) + "/" + Integer.toString(d) +"/" + Integer.toString(y));
+        this.dateToPrint = Integer.toString(m+1) + "/" + Integer.toString(d) +"/" + Integer.toString(y);
     }
 
     public void setTime(int h, int s) {
@@ -85,8 +88,13 @@ public class SetDateTime extends ActionBarActivity {
         }
         mSelectedHour = h;
         mSelectedSecond = s;
+        String sToPrint = Integer.toString(s);
+        if (sToPrint.length() == 1){
+            sToPrint = "0" + sToPrint;
+        }
         Button time = (Button) findViewById(R.id.setTime);
-        time.setText("Time: " + h + ":" + s + amPM);
+        time.setText("Time: " + h + ":" + sToPrint + amPM);
+        this.timeToPrint = h + ":" + sToPrint + amPM;
     }
 
 
@@ -204,20 +212,23 @@ public class SetDateTime extends ActionBarActivity {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
 
-                            //deal with notification making things
+                            //store the request as an accepted notification in SharedPreferences
                             SharedPreferences preferences = getActivity().getSharedPreferences("Notifications", 0);
                             SharedPreferences.Editor editor = preferences.edit();
 
 
-
                             final Calendar c = Calendar.getInstance();
                             String dateTimeString = c.toString();
-                            String finalString = SetDateTime.friendName + " has accepted your request!" +"," + dateTimeString;
+                            Log.d("calendar", "dateTimeString is: " + dateTimeString);
+                            String printing = SetDateTime.friendName + " has accepted your request for "
+                                    + SetDateTime.dateToPrint + " at " + SetDateTime.timeToPrint;
+                            //+"has accepted your request!"+ "," + "!" +","
+                            String finalString = printing + ","  + dateTimeString;
                             Log.d("Sam", "here's what we saved: " + finalString);
                             editor.putString(dateTimeString,finalString);
                             editor.commit();
-                            //end with notification making things
-                            //start with notification badge making
+
+                            //store the notification in our notification counter for the main screen badge
                             SharedPreferences preferencesBadge = getActivity().getSharedPreferences("NotifyBadge", 0);
                             SharedPreferences.Editor editorBadge = preferencesBadge.edit();
                             //42 means something went wrong and we couldn't get the real value
@@ -226,9 +237,8 @@ public class SetDateTime extends ActionBarActivity {
                             Log.d("Sam value", Integer.toString(valueToChange));
                             editorBadge.putInt("numNotify", valueToChange);
                             editorBadge.commit();
-                            //end with notification badge making
 
-
+                            //transition to main screen
                             Intent newIntent = new Intent();
                             newIntent.putExtra(finishString,true);
                             getActivity().setResult(FINISH_CODE,newIntent);

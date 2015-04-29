@@ -33,12 +33,14 @@ public class NotificationsScreen extends ActionBarActivity {
         // Make logo show up in action bar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-        //reset badge
+
+        //reset badge for the main screen to 0
         SharedPreferences preferencesBadge = this.getSharedPreferences("NotifyBadge", 0);
         SharedPreferences.Editor editorBadge = preferencesBadge.edit();
         editorBadge.putInt("numNotify", 0);
         editorBadge.commit();
 
+        //get notifications to list in screen
         SharedPreferences preferences = getSharedPreferences("Notifications",0);
 
             Map<String,String> notificationEntries = (Map<String,String>) preferences.getAll();
@@ -54,12 +56,12 @@ public class NotificationsScreen extends ActionBarActivity {
 
 
             // Sort the notifications based on when they were added (reverse date order). The second
-            //string takes care of this for us.
+            //string takes care of this for us. (Imitates code from MyRideHistory activity).
             Collections.sort(notify, new Comparator<String[]>() {
                 @Override
                 public int compare(String[] lhs, String[] rhs) {
                     //Log.d("Sam", "[0]= " + rhs[0] + "   and lhs[0]= " + lhs[0] + " ");
-                    return rhs[0].compareTo(lhs[0]);
+                    return rhs[1].compareTo(lhs[1]);
                 }
             });
 

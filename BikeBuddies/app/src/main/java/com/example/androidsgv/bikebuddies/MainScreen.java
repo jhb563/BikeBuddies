@@ -35,8 +35,7 @@ public class MainScreen extends ActionBarActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-
-
+        //set various layout pieces for clicking/changing as necessary
         leaderboardButton = (ImageButton) findViewById(R.id.leaderboardButton);
         startRideButton = (ImageButton) findViewById(R.id.startRideButton);
         friendsButton = (ImageButton) findViewById(R.id.findfriendsButton);
@@ -46,20 +45,6 @@ public class MainScreen extends ActionBarActivity {
         Log.d("Sam", "has been here" +Integer.toString(seen));
         setNotifyTextView();
 
-
-
-//        this.runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                badgeNumber = (TextView) findViewById(R.id.badgeText);
-//                SharedPreferences preferences = getSharedPreferences("NotifyBadge",0);
-//                //77 means something went wrong and we couldn't get the real value
-//                int value = preferences.getInt("numNotify", 77);
-//                Log.d("SAM", "value is: " + Integer.toString(value));
-//                badgeNumber.setText(Integer.toString(value));
-//                Log.d("SAM", "value is after: " + badgeNumber.getText());
-//            }
-//        });
     }
 
     @Override
@@ -67,19 +52,6 @@ public class MainScreen extends ActionBarActivity {
         super.onResume();
         setNotifyTextView();
     }
-
-//
-//    public void onRestoreInstanceState(Bundle savedInstanceState) {
-//        // Always call the superclass so it can restore the view hierarchy
-//        super.onRestoreInstanceState(savedInstanceState);
-//        setNotifyTextView();
-//        badgeNumber = (TextView) findViewById(R.id.badgeText);
-//        SharedPreferences preferences = getSharedPreferences("NotifyBadge",0);
-//        //77 means something went wrong and we couldn't get the real value
-//        int value = preferences.getInt("numNotify", 77);
-//        Log.d("SAM", "value is: " + Integer.toString(value));
-//        badgeNumber.setText(Integer.toString(value));
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -103,6 +75,7 @@ public class MainScreen extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //get the accurate value for number of unseen notifications
     public void setNotifyTextView(){
         badgeNumber = (TextView) findViewById(R.id.badgeText);
         SharedPreferences preferencesNotify = getSharedPreferences("NotifyBadge",0);
