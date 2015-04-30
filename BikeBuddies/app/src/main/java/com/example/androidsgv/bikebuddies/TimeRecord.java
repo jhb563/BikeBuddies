@@ -25,13 +25,17 @@ public class TimeRecord {
 
     public TimeRecord(String recordString) {
         String[] components = recordString.split(":");
-        if (components.length != 3) {
-            Log.e("James", "More or less than 2 colons in time String!");
-            Log.e("James",recordString);
-        } else {
+        if (components.length == 2) {
+            minutes = Integer.parseInt(components[0]);
+            seconds = Integer.parseInt(components[1]);
+            hours = 0;
+        } else if (components.length == 3) {
             hours = Integer.parseInt(components[0]);
             minutes = Integer.parseInt(components[1]);
             seconds = Integer.parseInt(components[2]);
+        } else {
+            Log.e("James", "Wrong number of colons in time String!");
+            Log.e("James",recordString);
         }
     }
 

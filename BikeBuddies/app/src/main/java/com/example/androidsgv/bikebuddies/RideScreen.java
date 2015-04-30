@@ -222,55 +222,18 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         if (oldTimeAndDist.length < 3) {
             Log.e("James","Something went wrong");
         } else {
-            String oldTime = oldTimeAndDist[1];
-//            String oldTimeString = oldTimeAndDist[1];
-//            TimeRecord oldTime = new TimeRecord(oldTimeString);
-            String[] times = oldTime.split(":");
-            int[] intTimes = new int[3];
-            for (int i = 0; i < 3; ++i) {
-                intTimes[i] = Integer.parseInt(times[i]);
-            }
+            String oldTimeString = oldTimeAndDist[1];
+            TimeRecord databaseTime = new TimeRecord(oldTimeString);
+            TimeRecord timeForThisRide = new TimeRecord(timeResultStr);
 
-            String[] timesForThisRide = timeResultStr.split(":");
-            int[] intRideTimes = new int[timesForThisRide.length];
-            for (int i = 0; i < intRideTimes.length; ++i) {
-                intRideTimes[i] = Integer.parseInt(timesForThisRide[i]);
-            }
-
-            String finalTime = "";
-            if (intRideTimes.length == 2) {
-                int newSeconds = intRideTimes[1] + intTimes[2];
-                int minuteCarry = newSeconds / 60;
-                newSeconds = newSeconds % 60;
-
-                int newMinutes = intRideTimes[0] + intTimes[1] + minuteCarry;
-                int hourCarry = newMinutes / 60;
-                newMinutes = newMinutes % 60;
-
-                int finalHour = intTimes[0] + hourCarry;
-
-                finalTime = finalHour + ":" + newMinutes + ":" + newSeconds;
-            } else if (intRideTimes.length == 3) {
-                int newSeconds = intRideTimes[2] + intTimes[2];
-                int minuteCarry = newSeconds / 60;
-                newSeconds = newSeconds % 60;
-
-                int newMinutes = intRideTimes[1] + intTimes[1] + minuteCarry;
-                int hourCarry = newMinutes / 60;
-                newMinutes = newMinutes % 60;
-
-                int finalHour = intTimes[0] + hourCarry + intRideTimes[0];
-
-                finalTime = finalHour + ":" + newMinutes + ":" + newSeconds;
-            } else {
-                Log.e("James","Something went wrong with the time!");
-            }
+            databaseTime.add(timeForThisRide);
+            String finalTime = databaseTime.toString();
 
 
             String oldDist = oldTimeAndDist[2];
             Double oldDistanceDoub = Double.valueOf(oldDist.substring(0,oldDist.length() - 2));
             Double newDistance = Double.valueOf(distanceResultStr);
-            String newDistanceString = (oldDistanceDoub + newDistance) + "";
+            String newDistanceString = String.format("%.2f",oldDistanceDoub + newDistance);
 
             editor.putString(currentUser,currentUser + "   " + finalTime + "   " + newDistanceString+"mi");
             editor.commit();
