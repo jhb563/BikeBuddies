@@ -73,7 +73,10 @@ public class LeaderboardScreen extends ActionBarActivity {
 
         for (i = 0; i < numEntries; ++i) {
             people[i] = allEntries[i][0];
-            data[i] = allEntries[i][1] + "   " + allEntries[i][2];
+            String distance = allEntries[i][2].substring(0,allEntries[i][2].length()-2);
+            double distanceDoub = Double.valueOf(distance);
+            String correctDistance = String.format("%.2f",distanceDoub);
+            data[i] = allEntries[i][1] + "   " + correctDistance;
         }
 
 

@@ -223,6 +223,8 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
             Log.e("James","Something went wrong");
         } else {
             String oldTime = oldTimeAndDist[1];
+//            String oldTimeString = oldTimeAndDist[1];
+//            TimeRecord oldTime = new TimeRecord(oldTimeString);
             String[] times = oldTime.split(":");
             int[] intTimes = new int[3];
             for (int i = 0; i < 3; ++i) {
