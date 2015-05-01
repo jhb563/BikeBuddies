@@ -34,6 +34,10 @@ public class MyRideHistoryActivity extends ActionBarActivity {
 
         SharedPreferences preferences = getSharedPreferences("Ride History",0);
 
+        /******************************
+         *  THE 3 LINES BELOW CLEAR OUT THE SHARED PREFERENCES FILE. UNCOMMENT THIS CODE
+         *  ONCE IF YOU WANT TO REMOVE ANY PREVIOUS RIDE ENTRIES.
+         ******************************/
 //        SharedPreferences.Editor edit = preferences.edit();
 //        edit.clear();
 //        edit.commit();

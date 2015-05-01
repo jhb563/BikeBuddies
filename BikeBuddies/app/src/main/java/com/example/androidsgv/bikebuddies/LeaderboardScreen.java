@@ -28,12 +28,20 @@ public class LeaderboardScreen extends ActionBarActivity {
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
         SharedPreferences preferences = getSharedPreferences("Class",0);
+
+        /******************************
+         *  THE 3 LINES BELOW CLEAR OUT THE SHARED PREFERENCES FILE. UNCOMMENT THIS CODE
+         *  ONCE IF YOU WANT TO REMOVE ANY PREVIOUS RIDE ENTRIES.
+         ******************************/
 //        SharedPreferences.Editor editor = preferences.edit();
-//
-////        Use this code to reset the class list to the default.
 //        editor.clear();
 //        editor.commit();
-//
+
+
+         /*
+          * Use the following lines (until editor.commit()) once to re-instantiate hard-coded
+          * data.
+          */
 //        String[] peopleOld = getResources().getStringArray(R.array.peoplearray);
 //        String[] dataOld = getResources().getStringArray(R.array.timemileagearray);
 //
@@ -73,7 +81,10 @@ public class LeaderboardScreen extends ActionBarActivity {
 
         for (i = 0; i < numEntries; ++i) {
             people[i] = allEntries[i][0];
-            data[i] = allEntries[i][1] + "   " + allEntries[i][2];
+            String distance = allEntries[i][2].substring(0,allEntries[i][2].length()-2);
+            double distanceDoub = Double.valueOf(distance);
+            String correctDistance = String.format("%.2f",distanceDoub);
+            data[i] = allEntries[i][1] + "   " + correctDistance;
         }
 
 

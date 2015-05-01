@@ -31,14 +31,14 @@
 
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="200dp"
+        android:layout_width="260dp"
         android:layout_height="100dp"
         android:layout_toRightOf="@+id/user_things"
         android:layout_alignTop="@+id/user_things"
         android:layout_alignRight="@+id/startRideButton"
         android:layout_alignEnd="@+id/startRideButton"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="20dp">
+        android:layout_marginLeft="10dp">
         <ImageView
             android:layout_width="200dp"
             android:layout_height="100dp"
@@ -61,8 +61,8 @@
             android:alpha="0.0"
             android:gravity="center"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="30dp"
             android:layout_alignParentBottom="true"
