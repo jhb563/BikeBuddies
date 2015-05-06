@@ -19,6 +19,13 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * This class displays the user's personal history of rides accomplished and recorded, displaying
+ * the date, length and distance of each ride, with the most recent displayed first.
+ *
+ * Created by James Bowen.
+ */
+
 
 public class MyRideHistoryActivity extends ActionBarActivity {
 
@@ -64,14 +71,6 @@ public class MyRideHistoryActivity extends ActionBarActivity {
                 return rhs[3].compareTo(lhs[3]);
             }
         });
-
-//        String[] ride3 = {"4/2/15","5.4 mi.","25:30"};
-//        String[] ride2 = {"4/10/15","6.3 mi.", "28:15"};
-//        String[] ride1 = {"4/15/15","4.3 mi.", "18:45"};
-//
-//        rides.add(ride3);
-//        rides.add(ride2);
-//        rides.add(ride1);
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.ride_history_layout);
 

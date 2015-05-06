@@ -19,7 +19,10 @@ import java.util.Comparator;
 import java.util.Map;
 
 /**
- * Created by Sam on 4/21/2015.
+ * This class handles displaying notifications from invitations, and is reached
+ * when a user clicks the Notifications button from the main screen.
+ *
+ * Created by Sam Echevarria on 4/21/2015.
  */
 public class NotificationsScreen extends ActionBarActivity {
 
@@ -60,7 +63,6 @@ public class NotificationsScreen extends ActionBarActivity {
             Collections.sort(notify, new Comparator<String[]>() {
                 @Override
                 public int compare(String[] lhs, String[] rhs) {
-                    //Log.d("Sam", "[0]= " + rhs[0] + "   and lhs[0]= " + lhs[0] + " ");
                     return rhs[1].compareTo(lhs[1]);
                 }
             });

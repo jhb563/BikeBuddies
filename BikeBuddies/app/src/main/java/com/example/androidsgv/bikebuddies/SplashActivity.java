@@ -1,7 +1,10 @@
 package com.example.androidsgv.bikebuddies;
 
 /**
- * Created by Sam on 4/26/2015.
+ * This class serves for the Splash page that first shows when the application is loaded,
+ * before the main screen is reached.
+ *
+ * Created by Hannah Young on 4/26/2015.
  */
 
 import android.content.Intent;

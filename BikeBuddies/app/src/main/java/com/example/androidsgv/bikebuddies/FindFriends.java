@@ -9,6 +9,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * This class displays the list of friends a user has, and allows the user to select which friend
+ * to invite on a bike ride. The user is then directed to the SetDateTime activity.
+ */
 
 public class FindFriends extends ActionBarActivity {
 
@@ -47,10 +51,12 @@ public class FindFriends extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Function called when button is selected to invite a friend, per activity's xml file
     public void setDateTime(View v) {
         String friendName;
         Intent intent = new Intent(this,SetDateTime.class);
-        //ADDED FOR NOTIFICATION PURPOSES
+
+        //Added information that hardcodes the friend invited for notification purposes
         TextView tv = (TextView) v.findViewById(v.getId());
         friendName = "Name Error";
         if (v.getId() == R.id.friend1Button){
@@ -65,7 +71,9 @@ public class FindFriends extends ActionBarActivity {
 
         Log.d("Sam", "friend name to pass is:" + friendName);
         intent.putExtra("name_of_friend", friendName);
-        //END ADDITIONS
+        //End additional information for notification purposes
+
+        //Starts activity to select time and date for invitation with friend
         startActivityForResult(intent, FINISH_CODE);
     }
 

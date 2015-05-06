@@ -15,6 +15,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 
+/**
+ * This class serves the main screen of the application, and includes setting the notifications
+ * badge information and the functions that start other activities when the corresponding button
+ * has been selected.
+ */
+
 public class MainScreen extends ActionBarActivity {
 
     Button notifyButton;
@@ -87,7 +93,13 @@ public class MainScreen extends ActionBarActivity {
 
     }
 
-    public void startRide(View v) {
+
+    /*The following set of functions create intents and start Activities based on
+    * whichever button has been selected. These are called when buttons are clicked
+    * as set in activity_main_screen.xml */
+
+
+     public void startRide(View v) {
 
         Intent intent = new Intent(this,RideScreen.class);
         startActivityForResult(intent,RIDE_CODE);

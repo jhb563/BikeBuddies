@@ -11,6 +11,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Map;
 
+/**
+ * This class serves for displaying a class leaderboard of students as ranked by their statistics.
+ * It works in conjunction with the ClassLeaderboardCustomAdapter.
+ *
+ */
+
 
 public class LeaderboardScreen extends ActionBarActivity {
 
@@ -36,8 +42,6 @@ public class LeaderboardScreen extends ActionBarActivity {
 //        SharedPreferences.Editor editor = preferences.edit();
 //        editor.clear();
 //        editor.commit();
-
-
          /*
           * Use the following lines (until editor.commit()) once to re-instantiate hard-coded
           * data.
@@ -87,10 +91,7 @@ public class LeaderboardScreen extends ActionBarActivity {
             data[i] = allEntries[i][1] + "   " + correctDistance;
         }
 
-
-//        people = getResources().getStringArray(R.array.peoplearray);
-//        data = getResources().getStringArray(R.array.timemileagearray);
-
+        //Sets the adapter with the necessary information and implements it in the activity
         ClassLeaderboardCustomAdapter adapter=new ClassLeaderboardCustomAdapter(this, people, data);
         list=(ListView)findViewById(R.id.listViewForLeaderboard);
         list.setAdapter(adapter);

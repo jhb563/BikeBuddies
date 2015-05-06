@@ -2,7 +2,6 @@ package com.example.androidsgv.bikebuddies;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -33,6 +32,13 @@ import com.google.maps.android.SphericalUtil;
 
 import java.util.Calendar;
 
+
+/**
+ * This class handles the activity that calculates statistics for a ride, as well as
+ * displays Google Maps.
+ *
+ * Created by James Bowen.
+ */
 
 public class RideScreen extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, OnMapReadyCallback, LocationListener,
@@ -207,6 +213,7 @@ public class RideScreen extends FragmentActivity implements GoogleApiClient.Conn
         String dateTimeString = c.toString();
         String abbrDate = month + "/" + day + "/" + year;
 
+        //Prepare information to be stored in SharedPreferences for the user
         SharedPreferences preferences = getSharedPreferences("Ride History",0);
         SharedPreferences.Editor editor = preferences.edit();
 

@@ -3,12 +3,14 @@
     package="com.example.androidsgv.bikebuddies"
     android:icon="@mipmap/ic_launcher">
 
+    <!--Permissions necessary for application to work correctly-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!--Sets icon, app label, and overall theme-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,6 +23,7 @@
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="" />
 
+        <!--Declarations of activities and their parent activities-->
         <activity
             android:name=".MainScreen"
             android:label="@string/title_activity_main_screen"

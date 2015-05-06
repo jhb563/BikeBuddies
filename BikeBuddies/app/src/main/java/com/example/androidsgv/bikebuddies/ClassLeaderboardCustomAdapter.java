@@ -1,7 +1,10 @@
 package com.example.androidsgv.bikebuddies;
 
 /**
- * Created by Sam on 3/30/2015.
+ * This class defines the custom Adapter for the Class Leaderboard that displays
+ * students and their statistics.
+ *
+ * Created by Sam Echevarria on 3/30/2015.
  */
 
 import android.app.Activity;
@@ -26,6 +29,7 @@ public class ClassLeaderboardCustomAdapter extends ArrayAdapter<String> {
         this.timeAndMileage =timeAndMileage;
     }
 
+    //Defines what a view looks like in a row of the Adapter, setting the necessary information
     public View getView(int position,View view,ViewGroup parent) {
         LayoutInflater inflater=context.getLayoutInflater();
         View rowView=inflater.inflate(R.layout.leaderboard_list, null,true);

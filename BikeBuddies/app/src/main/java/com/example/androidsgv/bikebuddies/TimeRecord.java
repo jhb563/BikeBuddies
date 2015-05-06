@@ -23,6 +23,7 @@ public class TimeRecord {
         seconds = s;
     }
 
+    //Constructor for TimeRecord class
     public TimeRecord(String recordString) {
         String[] components = recordString.split(":");
         if (components.length == 2) {
@@ -39,6 +40,7 @@ public class TimeRecord {
         }
     }
 
+    //Allows for TimeRecords to be added together
     public void add(TimeRecord other)
     {
         int totalSeconds = seconds + other.getSeconds();
@@ -65,6 +67,7 @@ public class TimeRecord {
         return seconds;
     }
 
+    //Method for readable printing of TimeRecords
     public String toString() {
         StringBuffer buffer = new StringBuffer();
         if (hours < 10) {
