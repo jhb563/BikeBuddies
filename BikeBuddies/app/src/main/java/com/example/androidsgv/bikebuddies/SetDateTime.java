@@ -27,7 +27,10 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 import java.util.Date;
 
-
+/**
+ * This class is where the user picks a date, time, and location for where they wish to scheduling
+ * a meetup with their friend.
+ **/
 public class SetDateTime extends ActionBarActivity {
 
     private static int FINISH_CODE = 2;
@@ -46,14 +49,17 @@ public class SetDateTime extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_date_time);
+        
         // Make logo show up in action bar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-
+        
+        // Set up ImeOptions so we can record user input from text
         EditText textBox = (EditText) findViewById(R.id.EditTextFeedbackBody);
         textBox.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
-        //set up notification in case we actually do send the request to a friend
+        // Set up notifications; once this is connected to a database, this function will need to 
+        // have dynamic functionality added to appropriatly grab and deal with data.
         extras = getIntent().getExtras();
         if (extras ==null){
             friendName = "Friend";
@@ -63,10 +69,12 @@ public class SetDateTime extends ActionBarActivity {
         }
     }
 
+    // Returns the name of the friend with which we're scheduling
     public String getFriendName(){
         return friendName;
     }
 
+    // Displays the date that the user picks
     public void setDate(int y, int m, int d) {
         mSelectedYear = y;
         mSelectedMonth = m;
@@ -76,6 +84,7 @@ public class SetDateTime extends ActionBarActivity {
         this.dateToPrint = Integer.toString(m+1) + "/" + Integer.toString(d) +"/" + Integer.toString(y);
     }
 
+    // Displays the time that the user picks
     public void setTime(int h, int s) {
         String amPM = " AM";
         if (h==0) {
@@ -112,7 +121,8 @@ public class SetDateTime extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
+        
+        // Settings functionality may be expanded once backend is added
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -121,16 +131,19 @@ public class SetDateTime extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Displays date picker
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getFragmentManager(), "datePicker");
     }
 
+    // Displays time picker
     public void showTimePickerDialog(View v) {
         DialogFragment newFragment = new TimePickerFragment();
         newFragment.show(getFragmentManager(), "timePicker");
     }
 
+    // Class fragment to create a time picker
     public static class TimePickerFragment extends DialogFragment
             implements TimePickerDialog.OnTimeSetListener {
 
@@ -146,13 +159,14 @@ public class SetDateTime extends ActionBarActivity {
                     DateFormat.is24HourFormat(getActivity()));
         }
 
+        // calls method to display time
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             SetDateTime thisActivity = (SetDateTime) getActivity();
             thisActivity.setTime(hourOfDay,minute);
         }
     }
 
-
+    // Class fragment to create date picker
     public static class DatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
 
@@ -168,12 +182,14 @@ public class SetDateTime extends ActionBarActivity {
             return new DatePickerDialog(getActivity(), this, year, month, day);
         }
 
+        // calls function to display time
         public void onDateSet(DatePicker view, int year, int month, int day) {
             SetDateTime thisActivity = (SetDateTime) getActivity();
             thisActivity.setDate(year,month,day);
         }
     }
 
+    // class fragment to create a confirmation dialog
     public static class AlertDialogFragment extends DialogFragment {
         @Override
         // Creates the yes no dialog
@@ -200,7 +216,8 @@ public class SetDateTime extends ActionBarActivity {
     }
 
 
-
+    // class fragment to create a dialog informing the user that their invitation has been sent
+    // and gives them a button to go to the home page
     public static class confirmDialogFragment extends DialogFragment {
         @Override
         // creates the confirmation dialog fragment so that the user goes back to the home screen
@@ -252,6 +269,7 @@ public class SetDateTime extends ActionBarActivity {
 
     }
 
+    // calls the confirmation fragment
     public void yesNoAlert(View view) {
         DialogFragment newFragment = new AlertDialogFragment();
         newFragment.show(getFragmentManager(), "alert");
